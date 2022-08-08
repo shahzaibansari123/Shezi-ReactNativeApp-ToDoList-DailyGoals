@@ -1,14 +1,14 @@
 import {app} from './app.js';
 import {config} from 'dotenv';
 import {connectDatabase} from './config/database.js'
-import cors  from "cors";
+// import cors  from "cors";
 
 
 config({
     path : './config/config.env'
 })
 
-app.use(cors());
+// app.use(cors());
 connectDatabase()
 
 
