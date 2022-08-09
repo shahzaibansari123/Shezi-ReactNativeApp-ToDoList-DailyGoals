@@ -14,7 +14,11 @@ const userSchema= new mongoose.Schema({
     password:{
         type: String,  
         required: true,
-        minLength: 8,         
+        minLength: [8, "password must be 8 characters long"]         
+    },
+    avatar:{
+        public_id: String,
+        url: String,
     }
 
 })
