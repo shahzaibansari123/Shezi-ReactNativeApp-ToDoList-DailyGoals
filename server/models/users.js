@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
     {
       title: String,
       description: String,
-      completed: boolean,
+      completed: Boolean,
       createdAt: Date,
     },
   ],
