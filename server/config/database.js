@@ -9,26 +9,24 @@ export const connectDatabase = async () => {
 //     process.exit(1);
 //   }
 
-
-mongoose
-  .connect(
-    process.env.MONGO_URI
-  )
-  .then(() => console.log("connected"))
-  .catch(() => console.log("Database connection failed!"));
-
-};
-
-  // mongoose
-  // .connect(process.env.MONGO_URI, {
+// mongoose
+// .connect(process.env.MONGO_URI, {
   //   useNewUrlParser: true,
   //   useUnifiedTopology: true,
   // })
-
-  // // const {connection} = mongoose.connect(process.env.MONGO_URI);
-
-  // console.log("MongoDB Connected")
-
   
+  // // const {connection} = mongoose.connect(process.env.MONGO_URI);
+  
+  // console.log("MongoDB Connected")
+  
+  
+  mongoose
+    .connect(
+      process.env.MONGO_URI
+    )
+    .then(() => console.log("connected"))
+    .catch(() => console.log("Database connection failed!"));
+  
+  };
 
 
