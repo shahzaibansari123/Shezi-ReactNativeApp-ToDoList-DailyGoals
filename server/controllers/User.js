@@ -1,5 +1,6 @@
 import { User } from "../models/users.js";
 import { sendMail } from "../utils/sendMail.js";
+import { sendToken } from "../utils/sendToken.js";
 
 export const register = async (req, res) => {
   try {
@@ -25,6 +26,8 @@ export const register = async (req, res) => {
     });
 
     await sendMail(email, "Verify your account", `Your OTP is ${otp}`);
+
+    sendToken
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
