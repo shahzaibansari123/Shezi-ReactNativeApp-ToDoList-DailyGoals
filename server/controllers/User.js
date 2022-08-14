@@ -27,7 +27,7 @@ export const register = async (req, res) => {
 
     await sendMail(email, "Verify your account", `Your OTP is ${otp}`);
 
-    sendToken(res, user, 200, message)
+    sendToken(res, user, 200, "OTP sent to your email, please verify your accunt")
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
