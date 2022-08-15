@@ -48,7 +48,9 @@ const userSchema = new mongoose.Schema({
 userSchema.pre("save", async function(next){
   if (!this.isModified("password")) return next()
 
-  
+  const salt= await brcypt.genSaalt(10)
+  this.password=await brcypt.hash(this.password, salt);
+  next();
 })
 
 userSchema.methods.getJWTToken = () => {
