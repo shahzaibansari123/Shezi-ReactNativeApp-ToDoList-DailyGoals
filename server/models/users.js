@@ -45,6 +45,12 @@ const userSchema = new mongoose.Schema({
   otp_expiry: Date,
 });
 
+userSchema.pre("save", async function(next){
+  if (!this.isModified("password")) return next()
+
+  
+})
+
 userSchema.methods.getJWTToken = () => {
   return jwt.sign({ _id: user_id }, process.env.JWT_SECRET_KEY, {
     expiresIn: process.env.COOKIE_JWT_EXPIRES_AT,
