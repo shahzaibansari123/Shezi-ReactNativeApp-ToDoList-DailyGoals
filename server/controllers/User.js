@@ -35,3 +35,13 @@ export const register = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
+
+export const verify=(req, res)=>{
+  try {
+    
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+
+}
