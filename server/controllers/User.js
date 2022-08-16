@@ -39,6 +39,7 @@ export const register = async (req, res) => {
 
 export const verify=(req, res)=>{
   try {
+    const otp= Number(req.body.otp)
     
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
