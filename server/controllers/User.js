@@ -37,9 +37,11 @@ export const register = async (req, res) => {
 };
 
 
-export const verify=(req, res)=>{
+export const verify= async (req, res)=>{
   try {
     const otp= Number(req.body.otp)
+
+    const user= await User.findById(req.user._id)
     
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
