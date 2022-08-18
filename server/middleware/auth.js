@@ -8,6 +8,8 @@ export const isAuthenticated= async(req, res)=>{
         if(!token){
             res.status(401).json({ success: false, message: "Login First" });    
         }
+
+        const decoded= jwt.verify(token, process.env.JWT_SEcRET_KEY);
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
