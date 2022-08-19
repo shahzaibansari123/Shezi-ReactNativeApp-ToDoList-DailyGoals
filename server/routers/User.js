@@ -1,6 +1,6 @@
 import express from "express";
 import {register, verify} from '../controllers/User.js'
-import { isAuthenticated } from "../middleware/auth.js";
+import { isAuthenticated } from '../middleware/auth.js'
 
 const router= express.Router();
 
