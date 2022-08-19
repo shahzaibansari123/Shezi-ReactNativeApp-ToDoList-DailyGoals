@@ -41,6 +41,10 @@ export const verify= async (req, res)=>{
   try {
     const otp= Number(req.body.otp)
 
+    if(user.otp !== otp || user.otp_expiry < Date.now()){
+      res.status(400).json({ success: false, message: "invalid OTP or has been expired" });   
+    }
+
     const user= await User.findById(req.user._id)
     
   } catch (error) {
