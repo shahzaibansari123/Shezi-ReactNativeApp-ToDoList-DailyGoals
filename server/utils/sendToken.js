@@ -4,7 +4,7 @@ export const sendToken = (res, user, statusCode, message) => {
   const options = {
     httpOnly: true,
     expires: new Date(
-      Date.now() + process.env.COOKIE_JWT_EXPIRES_AT * 60 * 1000
+      Date.now() + process.env.COOKIE_JWT_EXPIRES_AT * 24 * 60 * 60 * 1000
     ),
   };
 
