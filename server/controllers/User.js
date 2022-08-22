@@ -33,7 +33,7 @@ export const register = async (req, res) => {
     sendToken(
       res,
       user,
-      200,
+      201,
       "OTP sent to your email, please verify your account"
     );
   } catch (error) {
@@ -44,6 +44,7 @@ export const register = async (req, res) => {
 export const verify = async (req, res) => {
   try {
     const otp = Number(req.body.otp);
+    const user = await User.findById(req.user._id);
 
     if (user.otp !== otp || user.otp_expiry < Date.now()) {
       res
@@ -58,7 +59,13 @@ export const verify = async (req, res) => {
 
     await user.save();
 
-    const user = await User.findById(req.user._id);
+    sendToken(
+      res,
+      user,
+      200,
+      "Account Verified"
+    );
+
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
