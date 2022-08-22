@@ -15,12 +15,12 @@ export const register = async (req, res) => {
         .json({ success: false, message: "user already exists" });
     }
 
-    const otp = Math.floor(Math.random() * 1000000)
+    const otp = Math.floor(Math.random() * 1000000);
     user = await User.create({
       name,
       email,
       password,
-      avatar:{
+      avatar: {
         public_id: "",
         url: "",
       },
@@ -30,25 +30,36 @@ export const register = async (req, res) => {
 
     await sendMail(email, "Verify your account", `Your OTP is ${otp}`);
 
-    sendToken(res, user, 200, "OTP sent to your email, please verify your accunt")
+    sendToken(
+      res,
+      user,
+      200,
+      "OTP sent to your email, please verify your account"
+    );
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
 };
 
-
-export const verify= async (req, res)=>{
+export const verify = async (req, res) => {
   try {
-    const otp= Number(req.body.otp)
+    const otp = Number(req.body.otp);
 
-    if(user.otp !== otp || user.otp_expiry < Date.now()){
-      res.status(400).json({ success: false, message: "invalid OTP or has been expired" });   
+    if (user.otp !== otp || user.otp_expiry < Date.now()) {
+      res
+        .status(400)
+        .json({ success: false, message: "invalid OTP or has been expired" });
     }
 
-    const user= await User.findById(req.user._id)
-    
+
+    user.verified= true;
+    user.otp= null;
+    user.otp_expiry=null;
+
+    await user.save();
+
+    const user = await User.findById(req.user._id);
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
-
-}
+};
