@@ -76,12 +76,12 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
     // const { avatar } = req.files;
 
-    let user = await User.findOne({ email });
+    const user = await User.findOne({ email });
 
-    if (user) {
+    if (!user) {
       return res
         .status(400)
-        .json({ success: false, message: "user already exists" });
+        .json({ success: false, message: "Invalid Email orr Password" });
     }
 
     // const otp = Math.floor(Math.random() * 1000000);
