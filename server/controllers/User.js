@@ -81,8 +81,10 @@ export const login = async (req, res) => {
     if (!user) {
       return res
         .status(400)
-        .json({ success: false, message: "Invalid Email orr Password" });
+        .json({ success: false, message: "Invalid Email or Password" });
     }
+
+    const isMatch =await user.comparePassword(password)
 
     // const otp = Math.floor(Math.random() * 1000000);
     // user = await User.create({
