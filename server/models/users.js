@@ -60,4 +60,7 @@ userSchema.methods.getJWTToken = () => {
   });
 };
 
+userSchema.methods.comparePassword=  async(password)=>{
+
+}
 export const User = mongoose.model("User", userSchema);
