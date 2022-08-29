@@ -78,6 +78,12 @@ export const login = async (req, res) => {
 
     const user = await User.findOne({ email }).select("+password");
 
+    if(!email || !password){
+      return res
+        .status(400)
+        .json({ success: false, message: "Please enter all fields" });
+    }
+
     if (!user) {
       return res
         .status(400)
@@ -115,5 +121,18 @@ export const login = async (req, res) => {
     );
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export const logout = async (req, res) => {
+  try {
+     res
+         .status(200)
+         .cookie("token", null,{
+            expires: new Date(Date.now()),
+})
+  .json({ success: true, message: "Logged out successfully" });
+} catch ( error ) {
+  res.status(500).json ({ success: false, message: error.message });
   }
 };
