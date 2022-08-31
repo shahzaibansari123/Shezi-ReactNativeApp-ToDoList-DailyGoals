@@ -52,20 +52,13 @@ export const verify = async (req, res) => {
         .json({ success: false, message: "invalid OTP or has been expired" });
     }
 
-
-    user.verified= true;
-    user.otp= null;
-    user.otp_expiry=null;
+    user.verified = true;
+    user.otp = null;
+    user.otp_expiry = null;
 
     await user.save();
 
-    sendToken(
-      res,
-      user,
-      200,
-      "Account Verified"
-    );
-
+    sendToken(res, user, 200, "Account Verified");
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -78,7 +71,7 @@ export const login = async (req, res) => {
 
     const user = await User.findOne({ email }).select("+password");
 
-    if(!email || !password){
+    if (!email || !password) {
       return res
         .status(400)
         .json({ success: false, message: "Please enter all fields" });
@@ -90,7 +83,7 @@ export const login = async (req, res) => {
         .json({ success: false, message: "Invalid Email or Password" });
     }
 
-    const isMatch =await user.comparePassword(password)
+    const isMatch = await user.comparePassword(password);
 
     if (!isMatch) {
       return res
@@ -113,12 +106,7 @@ export const login = async (req, res) => {
 
     // await sendMail(email, "Verify your account", `Your OTP is ${otp}`);
 
-    sendToken(
-      res,
-      user,
-      200,
-      "Login Successful"
-    );
+    sendToken(res, user, 200, "Login Successful");
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -126,21 +114,32 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
   try {
-     res
-         .status(200)
-         .cookie("token", null,{
-            expires: new Date(Date.now()),
-})
-  .json({ success: true, message: "Logged out successfully" });
-} catch ( error ) {
-  res.status(500).json ({ success: false, message: error.message });
+    res
+      .status(200)
+      .cookie("token", null, {
+        expires: new Date(Date.now()),
+      })
+      .json({ success: true, message: "Logged out successfully" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
 export const addTask = async (req, res) => {
   try {
-  
-} catch ( error ) {
-  res.status(500).json ({ success: false, message: error.message });
+    const { title, description } = req.body;
+    const user = await User.findById(req.user._id);
+    user.tasks.push({
+      title,
+      description,
+      completed: false,
+      createdAt: new Date(Date.now()),
+    });
+
+    await user.save();
+
+    res.status(200).json({ success: true, message: "Task Added Successfully" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
   }
 };
