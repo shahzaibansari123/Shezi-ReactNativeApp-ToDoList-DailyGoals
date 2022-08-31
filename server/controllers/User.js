@@ -143,3 +143,18 @@ export const addTask = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
+
+export const removeTask = async (req, res) => {
+  try {
+    const { taskId } = req.params;
+    const user = await User.findById(req.user._id);
+    user.tasks = user.tasks.filter((task)=> task._id !== taskId)
+
+    await user.save();
+
+    res.status(200).json({ success: true, message: "Task Removed Successfully" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
