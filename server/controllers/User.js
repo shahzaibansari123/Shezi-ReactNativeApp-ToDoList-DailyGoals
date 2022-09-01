@@ -166,9 +166,11 @@ export const updateTask = async (req, res) => {
     const user = await User.findById(req.user._id);
     user.task = user.task.find((task)=> task._id.toString() === taskId.toString())
 
+    user.task.completed = !user.task.completed
+
     await user.save();
 
-    res.status(200).json({ success: true, message: "Task Removed Successfully" });
+    res.status(200).json({ success: true, message: "Task Updated Successfully" });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
