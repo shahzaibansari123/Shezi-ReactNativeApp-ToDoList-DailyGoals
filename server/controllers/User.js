@@ -186,7 +186,7 @@ export const getMyProfile = async (req, res) => {
       res,
       user,
       201,
-      ""
+      `Welcome Back ${user.name}`
     );
    } catch (error) {
     res.status(500).json({ success: false, message: error.message });

@@ -1,6 +1,7 @@
 import express from "express";
 import {
   addTask,
+  getMyProfile,
   login,
   logout,
   register,
@@ -22,5 +23,7 @@ router
   .route("/task/:taskId")
   .get(isAuthenticated, updateTask)
   .delete(isAuthenticated, removeTask);
+
+router.route("/me").get(isAuthenticated, getMyProfile);
 
 export default router;
