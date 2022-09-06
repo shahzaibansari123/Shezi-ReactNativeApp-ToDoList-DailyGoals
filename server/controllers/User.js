@@ -1,3 +1,4 @@
+
 import { User } from "../models/users.js";
 import { sendMail } from "../utils/sendMail.js";
 import { sendToken } from "../utils/sendToken.js";
@@ -144,51 +145,76 @@ export const addTask = async (req, res) => {
   }
 };
 
-
 export const removeTask = async (req, res) => {
   try {
     const { taskId } = req.params;
     const user = await User.findById(req.user._id);
-    user.tasks = user.tasks.filter((task)=> task._id.toString() !== taskId.toString())
+    user.tasks = user.tasks.filter(
+      (task) => task._id.toString() !== taskId.toString()
+    );
 
     await user.save();
 
-    res.status(200).json({ success: true, message: "Task Removed Successfully" });
+    res
+      .status(200)
+      .json({ success: true, message: "Task Removed Successfully" });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
 };
-
 
 export const updateTask = async (req, res) => {
   try {
     const { taskId } = req.params;
     const user = await User.findById(req.user._id);
-    user.task = user.tasks.find((task)=> task._id.toString() === taskId.toString())
+    user.task = user.tasks.find(
+      (task) => task._id.toString() === taskId.toString()
+    );
 
-    user.task.completed = !user.task.completed
+    user.task.completed = !user.task.completed;
 
     await user.save();
- 
-    res.status(200).json({ success: true, message: "Task Updated Successfully" });
+
+    res
+      .status(200)
+      .json({ success: true, message: "Task Updated Successfully" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export const getMyProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    sendToken(res, user, 201, `Welcome Back ${user.name}`);
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export const updateProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+
+    const { name } = req.body;
+    // const { avatar } = req.files;
+
+    if (name) user.name = name;
+
+    // if (avatar)
+      res
+        .status(200)
+        .json({ success: true, message: "Profile Updated Successfully" });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
 };
 
 
-
-export const getMyProfile = async (req, res) => {
+export const updatePasword=async(req,res)=>{
   try {
-
-    const user= await User.findById(req.user._id)
-    sendToken(
-      res,
-      user,
-      201,
-      `Welcome Back ${user.name}`
-    );
-   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    
+  } catch (error) {
+    
   }
-};
+}
