@@ -1,4 +1,3 @@
-
 import { User } from "../models/users.js";
 import { sendMail } from "../utils/sendMail.js";
 import { sendToken } from "../utils/sendToken.js";
@@ -202,26 +201,25 @@ export const updateProfile = async (req, res) => {
     if (name) user.name = name;
 
     // if (avatar)
-      res
-        .status(200)
-        .json({ success: true, message: "Profile Updated Successfully" });
+    res
+      .status(200)
+      .json({ success: true, message: "Profile Updated Successfully" });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
 };
 
-
-export const updatePasword=async(req,res)=>{
+export const updatePasword = async (req, res) => {
   try {
-    const user= await User.findById(req.user._id).select("+password");
+    const user = await User.findById(req.user._id).select("+password");
 
-    const {oldPassword, newPassword}= req.body;
+    const { oldPassword, newPassword } = req.body;
 
-    const isMatch= await user.comparePassword(oldPassword)
+    const isMatch = await user.comparePassword(oldPassword);
 
-
-    
-  } catch (error) {
-    
-  }
-}
+    if (!isMatch){
+      return
+      res.status(400).json({ success: false, message: "invalid old password" });
+    }
+  } catch (error) {}
+};
