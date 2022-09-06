@@ -213,6 +213,13 @@ export const updateProfile = async (req, res) => {
 
 export const updatePasword=async(req,res)=>{
   try {
+    const user= await User.findById(req.user._id).select("+password");
+
+    const {oldPassword, newPassword}= req.body;
+
+    const isMatch= await user.comparePassword(oldPassword)
+
+
     
   } catch (error) {
     
