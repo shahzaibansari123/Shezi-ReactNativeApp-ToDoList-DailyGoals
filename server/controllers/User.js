@@ -217,9 +217,16 @@ export const updatePasword = async (req, res) => {
 
     const isMatch = await user.comparePassword(oldPassword);
 
-    if (!isMatch){
-      return
+    if (!isMatch) {
+      return;
       res.status(400).json({ success: false, message: "invalid old password" });
     }
-  } catch (error) {}
+    user.password = newPassword;
+    await user.save();
+
+    res.status(200).json({ success: true, message: "Password Updated Successfully" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+
+  }
 };
