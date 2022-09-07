@@ -201,6 +201,8 @@ export const updateProfile = async (req, res) => {
     if (name) user.name = name;
 
     // if (avatar)
+
+    await user.save();
     res
       .status(200)
       .json({ success: true, message: "Profile Updated Successfully" });
@@ -224,9 +226,10 @@ export const updatePasword = async (req, res) => {
     user.password = newPassword;
     await user.save();
 
-    res.status(200).json({ success: true, message: "Password Updated Successfully" });
+    res
+      .status(200)
+      .json({ success: true, message: "Password Updated Successfully" });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
-
   }
 };

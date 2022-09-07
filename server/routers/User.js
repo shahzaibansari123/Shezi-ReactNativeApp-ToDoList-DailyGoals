@@ -26,8 +26,8 @@ router
   .get(isAuthenticated, updateTask)
   .delete(isAuthenticated, removeTask);
 
-router.route("updateprofile").put(isAuthenticated, updateProfile);
-router.route("updatepassword").put(isAuthenticated, updatePasword);
+router.route("/updateprofile").put(isAuthenticated, updateProfile);
+router.route("/updatepassword").put(isAuthenticated, updatePasword);
 
 router.route("/me").get(isAuthenticated, getMyProfile);
 
