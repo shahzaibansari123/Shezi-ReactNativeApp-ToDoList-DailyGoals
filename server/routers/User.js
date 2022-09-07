@@ -6,6 +6,8 @@ import {
   logout,
   register,
   removeTask,
+  updatePasword,
+  updateProfile,
   updateTask,
   verify,
 } from "../controllers/User.js";
@@ -23,6 +25,9 @@ router
   .route("/task/:taskId")
   .get(isAuthenticated, updateTask)
   .delete(isAuthenticated, removeTask);
+
+router.route("updateprofile").put(isAuthenticated, updateProfile);
+router.route("updatepassword").put(isAuthenticated, updatePasword);
 
 router.route("/me").get(isAuthenticated, getMyProfile);
 
