@@ -217,6 +217,10 @@ export const updatePasword = async (req, res) => {
 
     const { oldPassword, newPassword } = req.body;
 
+    if(!oldPassword || !newPassword){
+      res.status(400).json({ success: false, message: "Please Enter All Fields" });
+    }
+
     const isMatch = await user.comparePassword(oldPassword);
 
     if (!isMatch) {
