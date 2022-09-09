@@ -211,14 +211,16 @@ export const updateProfile = async (req, res) => {
   }
 };
 
-export const updatePasword = async (req, res) => {
+export const updatePassword = async (req, res) => {
   try {
     const user = await User.findById(req.user._id).select("+password");
 
     const { oldPassword, newPassword } = req.body;
 
-    if(!oldPassword || !newPassword){
-      res.status(400).json({ success: false, message: "Please Enter All Fields" });
+    if (!oldPassword || !newPassword) {
+      res
+        .status(400)
+        .json({ success: false, message: "Please Enter All Fields" });
     }
 
     const isMatch = await user.comparePassword(oldPassword);
@@ -236,4 +238,16 @@ export const updatePasword = async (req, res) => {
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
+};
+
+export const forgetPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return;
+      res.status(400).json({ success: false, message: "invalid Email" });
+    }
+  } catch (error) {}
 };
