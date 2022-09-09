@@ -249,5 +249,20 @@ export const forgetPassword = async (req, res) => {
       return;
       res.status(400).json({ success: false, message: "invalid Email" });
     }
-  } catch (error) {}
+
+    const otp = Math.floor(Math.random() * 1000000);
+   
+
+    await sendMail(email, "Verify your account", `Your OTP is ${otp}`);
+
+    sendToken(
+      res,
+      user,
+      201,
+      "OTP sent to your email, please verify your account"
+    );
+
+  } catch (error) {
+    
+  }
 };
