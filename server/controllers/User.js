@@ -251,6 +251,8 @@ export const forgetPassword = async (req, res) => {
     }
 
     const otp = Math.floor(Math.random() * 1000000);
+
+    user.resetPasswordOtp= otp;
    
 
     await sendMail(email, "Verify your account", `Your OTP is ${otp}`);
