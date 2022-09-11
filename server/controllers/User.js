@@ -253,14 +253,14 @@ export const forgetPassword = async (req, res) => {
     const otp = Math.floor(Math.random() * 1000000);
 
     user.resetPasswordOtp = otp;
-
+    user.resetPasswordOtpExpiry = Date.now() + 10 * 60 * 1000;
+    await user.save();
+    
     const message = `Your Otp for Resetting the Passsword ${otp}. If you did not request for this, Please ignore this email`;
 
     await sendMail(email, "Request for Resetting password", message);
-    res.status(200).json({ success: true, message: `Otp sent to ${email}`});
-    
+    res.status(200).json({ success: true, message: `Otp sent to ${email}` });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message});
-
+    res.status(500).json({ success: false, message: error.message });
   }
 };
