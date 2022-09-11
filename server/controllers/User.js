@@ -254,15 +254,10 @@ export const forgetPassword = async (req, res) => {
 
     user.resetPasswordOtp = otp;
 
-    const message = `Your Otp for Resetting the Passsword ${otp}. If you did not request for this, Please igore this email`;
+    const message = `Your Otp for Resetting the Passsword ${otp}. If you did not request for this, Please ignore this email`;
 
     await sendMail(email, "Request for Resetting password", message);
-
-    sendToken(
-      res,
-      user,
-      201,
-      "OTP sent to your email, please verify your account"
-    );
+    res.status(200).json({ success: true, message: "Password Updated Successfully" });
+    
   } catch (error) {}
 };
