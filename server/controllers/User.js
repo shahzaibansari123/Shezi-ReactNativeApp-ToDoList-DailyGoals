@@ -257,7 +257,10 @@ export const forgetPassword = async (req, res) => {
     const message = `Your Otp for Resetting the Passsword ${otp}. If you did not request for this, Please ignore this email`;
 
     await sendMail(email, "Request for Resetting password", message);
-    res.status(200).json({ success: true, message: "Password Updated Successfully" });
+    res.status(200).json({ success: true, message: `Otp sent to ${email}`});
     
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message});
+
+  }
 };
