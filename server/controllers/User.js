@@ -255,11 +255,40 @@ export const forgetPassword = async (req, res) => {
     user.resetPasswordOtp = otp;
     user.resetPasswordOtpExpiry = Date.now() + 10 * 60 * 1000;
     await user.save();
-    
+
     const message = `Your Otp for Resetting the Passsword ${otp}. If you did not request for this, Please ignore this email`;
 
     await sendMail(email, "Request for Resetting password", message);
     res.status(200).json({ success: true, message: `Otp sent to ${email}` });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export const resetPassword = async (req, res) => {
+  try {
+    const { otp, newpassword } = req.body;
+
+    const user = await User.findOne({
+      resetPasswordOtp: otp,
+      resetPasswordOtpExpiry: { $gt: Date.now() },
+    }).select("+password");
+
+    if (!user) {
+      return;
+      res
+        .status(400)
+        .json({ success: false, message: "Invalid OTP or has been Expired" });
+    }
+
+    user.password = newPassword;
+    user.resetPasswordOtp = null;
+    user.resetPasswordOtpExpiry = null;
+    await user.save();
+
+    res
+      .status(200)
+      .json({ success: true, message: "Your password has been Changed" });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

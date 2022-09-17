@@ -2,6 +2,7 @@ import express from "express";
 import {
   addTask,
   forgetPassword,
+  resetPassword,
   getMyProfile,
   login,
   logout,
@@ -27,11 +28,12 @@ router
   .get(isAuthenticated, updateTask)
   .delete(isAuthenticated, removeTask);
 
+router.route("/me").get(isAuthenticated, getMyProfile);
+
 router.route("/updateprofile").put(isAuthenticated, updateProfile);
 router.route("/updatepassword").put(isAuthenticated, updatePassword);
 
-router.route("/me").get(isAuthenticated, getMyProfile);
-
 router.route("/forgetpassword").post(forgetPassword);
+router.route("/resetpassword").put(resetPassword);
 
 export default router;
