@@ -6,11 +6,11 @@ import cloudinary from "cloudinary";
 export const register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    const { avatar } = req.files;
+    // const {avatar}= req.files
+
+    const avatar = req.files.avatar.tempFilePath;
     // console.log(avatar)
 
-    const myCloud = await cloudinary.v2.uploader.upload(avatar.path);
-    
     let user = await User.findOne({ email });
 
     if (user) {
@@ -20,6 +20,11 @@ export const register = async (req, res) => {
     }
 
     const otp = Math.floor(Math.random() * 1000000);
+
+    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
+      folder: "TodoAppp",
+    });
+    
     user = await User.create({
       name,
       email,
