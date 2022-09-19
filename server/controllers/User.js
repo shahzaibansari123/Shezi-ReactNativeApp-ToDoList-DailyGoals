@@ -24,14 +24,14 @@ export const register = async (req, res) => {
     const myCloud = await cloudinary.v2.uploader.upload(avatar, {
       folder: "TodoAppp",
     });
-    
+
     user = await User.create({
       name,
       email,
       password,
       avatar: {
-        public_id: "",
-        url: "",
+        public_id: "myCloud.public_id",
+        url: "myCloud.secure_url",
       },
       otp,
       otp_expiry: new Date(Date.now() + process.env.OTP_EXPIRE * 60 * 1000),
