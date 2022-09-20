@@ -2,6 +2,7 @@ import { User } from "../models/users.js";
 import { sendMail } from "../utils/sendMail.js";
 import { sendToken } from "../utils/sendToken.js";
 import cloudinary from "cloudinary";
+import fs from 'fs'
 
 export const register = async (req, res) => {
   try {
@@ -25,13 +26,15 @@ export const register = async (req, res) => {
       folder: "TodoAppp",
     });
 
+    fs.rmSync('./tmp',{recursive: true})
+
     user = await User.create({
       name,
       email,
       password,
       avatar: {
-        public_id: "myCloud.public_id",
-        url: "myCloud.secure_url",
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
       },
       otp,
       otp_expiry: new Date(Date.now() + process.env.OTP_EXPIRE * 60 * 1000),
