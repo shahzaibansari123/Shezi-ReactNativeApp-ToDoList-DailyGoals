@@ -22,11 +22,13 @@ export const register = async (req, res) => {
 
     const otp = Math.floor(Math.random() * 1000000);
 
-    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
-      folder: "TodoAppp",
-    });
+    // const myCloud = await cloudinary.v2.uploader.upload(avatar, {
+    //   folder: "TodoAppp",
+    // });
 
-    fs.rmSync('./tmp',{recursive: true})
+    const myCloud = await cloudinary.v2.uploader.upload(avatar);
+
+    fs.rmSync("./tmp",{recursive: true})
 
     user = await User.create({
       name,
