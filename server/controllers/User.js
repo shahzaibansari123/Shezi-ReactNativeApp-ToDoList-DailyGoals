@@ -218,6 +218,11 @@ export const updateProfile = async (req, res) => {
 
     if (avatar){
       await cloudinary.v2.uploader.destroy(user.avatar.public_id)
+
+      const myCloud = await cloudinary.v2.uploader.upload(avatar);
+
+      
+  
     }
 
     await user.save();
