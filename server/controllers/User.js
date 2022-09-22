@@ -221,7 +221,7 @@ export const updateProfile = async (req, res) => {
 
       const myCloud = await cloudinary.v2.uploader.upload(avatar);
 
-      
+      fs.rmSync("./tmp",{recursive: true})
   
     }
 
