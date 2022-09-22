@@ -212,11 +212,13 @@ export const updateProfile = async (req, res) => {
     const user = await User.findById(req.user._id);
 
     const { name } = req.body;
-    // const { avatar } = req.files;
+    const  avatar  = req.files.avatar.tempFilePath;
 
     if (name) user.name = name;
 
-    // if (avatar)
+    if (avatar){
+      await cloudinary.v2.uploader.destroy(user.avatar.public_id)
+    }
 
     await user.save();
     res
