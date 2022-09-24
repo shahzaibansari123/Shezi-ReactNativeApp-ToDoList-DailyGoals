@@ -2,7 +2,7 @@ import { User } from "../models/users.js";
 import { sendMail } from "../utils/sendMail.js";
 import { sendToken } from "../utils/sendToken.js";
 import cloudinary from "cloudinary";
-import fs from 'fs'
+import fs from "fs";
 
 export const register = async (req, res) => {
   try {
@@ -28,7 +28,7 @@ export const register = async (req, res) => {
 
     const myCloud = await cloudinary.v2.uploader.upload(avatar);
 
-    fs.rmSync("./tmp",{recursive: true})
+    fs.rmSync("./tmp", { recursive: true });
 
     user = await User.create({
       name,
@@ -212,17 +212,21 @@ export const updateProfile = async (req, res) => {
     const user = await User.findById(req.user._id);
 
     const { name } = req.body;
-    const  avatar  = req.files.avatar.tempFilePath;
+    const avatar = req.files.avatar.tempFilePath;
 
     if (name) user.name = name;
 
-    if (avatar){
-      await cloudinary.v2.uploader.destroy(user.avatar.public_id)
+    if (avatar) {
+      await cloudinary.v2.uploader.destroy(user.avatar.public_id);
 
       const myCloud = await cloudinary.v2.uploader.upload(avatar);
 
-      fs.rmSync("./tmp",{recursive: true})
-  
+      fs.rmSync("./tmp", { recursive: true });
+
+      user.avatar = {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      };
     }
 
     await user.save();
