@@ -20,5 +20,6 @@ app.use('/api/v1', User)
 
 
 app.get('/',(req,res)=>{
+    console.log("server is running")
 
 })
