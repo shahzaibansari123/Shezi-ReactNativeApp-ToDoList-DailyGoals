@@ -8,11 +8,13 @@ const Main = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="home">
+        <Stack.Screen name="home" component={Home}/>
 
-        
+
       </Stack.Navigator>
     </NavigationContainer>
+     
   );
 };
 
