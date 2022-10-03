@@ -5,8 +5,9 @@ import React from 'react'
 const Home = ({navigation}) => {
     // const navigation= useNavigation()
   return (
-    <View>
-      <Text onPress={()=> navigation.navigate("login")}>Home</Text>
+    <View style={{backgroundColor: "white", flex: 1}}>
+      {/* <Text onPress={()=> navigation.navigate("login")}>Home</Text> */}
+    <Text>Home</Text>
     </View>
   )
 }
