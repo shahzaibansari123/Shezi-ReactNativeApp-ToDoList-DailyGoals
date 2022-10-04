@@ -3,10 +3,10 @@ import mongoose from "mongoose";
 export const connectDatabase = async () => {
   try {
     const { connection } = await mongoose.connect(process.env.MONGO_URI);
-
     mongoose
-      .connect(process.env.MONGO_URI)
-      .then(() => console.log(`connected ${connection.host}`))
+    .connect(process.env.MONGO_URI)
+    //console---f connection.host = cluster shared etc etc connect ;
+      .then(() => console.log("Database Connected Successfully ✅  "))
       .catch(() => console.log("Database connection failed!"));
   } catch (error) {
     console.log(error);
