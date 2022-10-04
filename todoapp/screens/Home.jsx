@@ -13,7 +13,6 @@ const Home = ({ navigation }) => {
   // const navigation= useNavigation()
 
   return (
-
     // =======================
     //    setting status bar height manully as safe area view doesnot work in android
     //    <StatusBar
@@ -29,7 +28,7 @@ const Home = ({ navigation }) => {
 
     <View style={Styles.container}>
       <SafeAreaView>
-        <Text style={}>All Tasks:</Text>
+        <Text style={Styles.heading}>All Tasks:</Text>
       </SafeAreaView>
     </View>
   );
@@ -41,7 +40,14 @@ const Styles = StyleSheet.create({
     flex: 1,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
-  heading: {},
+  heading: {
+    textAlign: "center",
+    fontSize: 28,
+    fontFamily: "sans-serif-condensed",
+    fontWeight: "bold",
+    color: "white",
+    backgroundColor: "black",
+  },
 });
 
 export default Home;
