@@ -13,6 +13,8 @@ import Task from "../components/Task";
 const Home = ({ navigation }) => {
   // const navigation= useNavigation()
 
+  const tasks = [1, 2, 3];
+
   return (
     // =======================
     //    setting status bar height manully as safe area view doesnot work in android
@@ -30,7 +32,10 @@ const Home = ({ navigation }) => {
     <View style={Styles.container}>
       <SafeAreaView>
         <Text style={Styles.heading}>All Tasks:</Text>
-        <Task />
+
+        {tasks.map((i, index) => (
+          <Task key={index} />
+        ))}
       </SafeAreaView>
     </View>
   );
