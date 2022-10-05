@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 import React from "react";
+import Task from "../components/Task";
 // import { useNavigation } from '@react-navigation/native'
 
 const Home = ({ navigation }) => {
@@ -29,6 +30,7 @@ const Home = ({ navigation }) => {
     <View style={Styles.container}>
       <SafeAreaView>
         <Text style={Styles.heading}>All Tasks:</Text>
+        <Task />
       </SafeAreaView>
     </View>
   );
