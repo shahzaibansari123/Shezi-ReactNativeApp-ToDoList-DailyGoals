@@ -1,7 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React , {useState} from 'react'
+import {checkbox} from 'react-native-paper'
 
-const Task = () => {
+const Task = ({title, description, status, taskId}) => {
+
+  const [completed, setCompleted]= useState(status)
+
   return (
     <View>
       <Text>Task</Text>
