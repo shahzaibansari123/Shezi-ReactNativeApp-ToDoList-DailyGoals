@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
-import { checkbox } from "react-native-paper";
+import { Checkbox } from "react-native-paper";
 
 const Task = ({ title, description, status, taskId }) => {
   const [completed, setCompleted] = useState(status);
@@ -8,9 +8,10 @@ const Task = ({ title, description, status, taskId }) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.taskContainer}>
-      <Text style={styles.task}>{title}</Text>
-      <Text></Text>
+      <Text style={styles.taskTitle}>{title}</Text>
+      <Text style={styles.taskDescription}>{description}</Text>
       </View>
+      <Checkbox status={completed ? "checked" : "unchecked"}/>
     </View>
   );
 };
@@ -28,9 +29,13 @@ const styles = StyleSheet.create({
   taskContainer: {
     width: '20%',
   },
-  task:{
+  taskTitle:{
     marginVertical: 7,
     fontSize: 70,
     color: '#900',
-  }
+  },
+  taskDescription:{
+    color: "red",
+    fontSize: 40,
+  },
 });
