@@ -6,8 +6,11 @@ const Task = ({ title, description, status, taskId }) => {
   const [completed, setCompleted] = useState(status);
 
   return (
-    <View style={styles.taskContainer}>
-      <Text>Task</Text>
+    <View style={styles.mainContainer}>
+      <View style={styles.taskContainer}>
+      <Text style={styles.task}>{title}</Text>
+      <Text></Text>
+      </View>
     </View>
   );
 };
@@ -15,10 +18,19 @@ const Task = ({ title, description, status, taskId }) => {
 export default Task;
 
 const styles = StyleSheet.create({
-  taskContainer: {
+  mainContainer: {
     padding: 10,
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-evenly",
   },
+
+  taskContainer: {
+    width: '20%',
+  },
+  task:{
+    marginVertical: 7,
+    fontSize: 70,
+    color: '#900',
+  }
 });
