@@ -6,13 +6,17 @@ import  Icon from 'react-native-vector-icons/AntDesign'
 const Task = ({ title, description, status, taskId }) => {
   const [completed, setCompleted] = useState(status);
 
+  const handleCompleted=()=>{
+    setCompleted(!completed)
+  }
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.taskContainer}>
       <Text style={styles.taskTitle}>{title}</Text>
       <Text style={styles.taskDescription}>{description}</Text>
       </View>
-      <Checkbox status={completed ? "checked" : "unchecked"} color="#474747"/>
+      <Checkbox onPress={handleCompleted}  status={completed ? "checked" : "unchecked"} color="#474747"/>
       <Icon name="delete" color="#fff"  size={20} style={styles.dltIcon}/>
     </View>
   );

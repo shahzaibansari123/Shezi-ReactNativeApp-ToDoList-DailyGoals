@@ -34,7 +34,7 @@ const Home = ({ navigation }) => {
         <Text style={Styles.heading}>All Tasks:</Text>
 
         {tasks.map((i, index) => (
-          <Task key={index} />
+          <Task key={index}   />
         ))}
       </SafeAreaView>
     </View>
