@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import { Checkbox } from "react-native-paper";
+import  Icon from 'react-native-vector-icons/AntDesign'
 
 const Task = ({ title, description, status, taskId }) => {
   const [completed, setCompleted] = useState(status);
@@ -11,7 +12,8 @@ const Task = ({ title, description, status, taskId }) => {
       <Text style={styles.taskTitle}>{title}</Text>
       <Text style={styles.taskDescription}>{description}</Text>
       </View>
-      <Checkbox status={completed ? "checked" : "unchecked"}/>
+      <Checkbox status={completed ? "checked" : "unchecked"} color="#474747"/>
+      <Icon name="delete" color="#fff"  size={20} style={styles.dltIcon}/>
     </View>
   );
 };
@@ -38,4 +40,9 @@ const styles = StyleSheet.create({
     color: "red",
     fontSize: 40,
   },
+
+  dltIcon:{
+    
+
+  }
 });
