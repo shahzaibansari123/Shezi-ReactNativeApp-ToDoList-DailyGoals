@@ -42,7 +42,10 @@ const styles = StyleSheet.create({
   },
 
   dltIcon:{
-    
+    backgroundColor: "#900",
+    borderRadius: 50,
+    padding: 10,
+
 
   }
 });
