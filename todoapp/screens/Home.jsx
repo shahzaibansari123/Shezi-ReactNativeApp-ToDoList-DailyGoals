@@ -13,7 +13,8 @@ import Task from "../components/Task";
 const Home = ({ navigation }) => {
   // const navigation= useNavigation()
 
-  const tasks = [1, 2, 3];
+  const tasks = [{title: "task 01", description: "Sample text", completed: false, _id: "jsdhaskjdhk" },
+  {title: "task 02", description: "Sample text", completed: true, _id: "jssdsdsddhaskjdhk" }];
 
   return (
     // =======================
