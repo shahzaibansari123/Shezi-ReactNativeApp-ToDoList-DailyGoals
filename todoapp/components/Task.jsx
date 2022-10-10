@@ -9,6 +9,9 @@ const Task = ({ title, description, status, taskId }) => {
   const handleCompleted=()=>{
     setCompleted(!completed)
   }
+  const handleDelete=()=>{
+   console.log("task Deleted")
+  }
 
   return (
     <View style={styles.mainContainer}>
@@ -17,7 +20,7 @@ const Task = ({ title, description, status, taskId }) => {
       <Text style={styles.taskDescription}>{description}</Text>
       </View>
       <Checkbox onPress={handleCompleted}  status={completed ? "checked" : "unchecked"} color="#474747"/>
-      <Icon name="delete" color="#fff"  size={20} style={styles.dltIcon}/>
+      <Icon name="delete" color="#fff"  size={20} style={styles.dltIcon} onPress={handleDelete} />
     </View>
   );
 };
