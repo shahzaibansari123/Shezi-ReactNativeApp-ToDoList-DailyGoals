@@ -30,19 +30,19 @@ const Home = ({ navigation }) => {
 
     //   <Text onPress={()=> navigation.navigate("login")}>Home</Text>
 
-    <View style={Styles.container}>
+    <View style={styles.container}>
       <SafeAreaView>
-        <Text style={Styles.heading}>All Tasks:</Text>
+        <Text style={styles.heading}>All Tasks:</Text>
 
-        {tasks.map((i, index) => (
-          <Task key={index}   />
+        {tasks.map((item) => (
+          <Task key={item._id} title={item.title} description={item.description} completed={item.completed} taskId={item._id}   />
         ))}
       </SafeAreaView>
     </View>
   );
 };
 
-const Styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     flex: 1,
