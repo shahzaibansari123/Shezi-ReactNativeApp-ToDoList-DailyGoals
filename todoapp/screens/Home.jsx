@@ -10,6 +10,7 @@ import {
 import React from "react";
 import Task from "../components/Task";
 import Icon from "react-native-vector-icons/Entypo";
+import { Dialog } from "react-native-paper";
 // import { useNavigation } from '@react-navigation/native'
 
 const Home = ({ navigation }) => {
@@ -31,7 +32,7 @@ const Home = ({ navigation }) => {
     //   =======================
 
     //   <Text onPress={()=> navigation.navigate("login")}>Home</Text>
-
+<>
     <View style={styles.container}>
       <SafeAreaView>
         <Text style={styles.heading}>All Tasks:</Text>
@@ -42,9 +43,14 @@ const Home = ({ navigation }) => {
       </SafeAreaView>
 
       <TouchableOpacity style={styles.addBtn}>
-        <Icon size={20} name="add-to-list" />
+        <Icon size={20} name="add-to-list" color="#900"/>
       </TouchableOpacity>
     </View>
+    <Dialog visible={true}>
+      <
+    </Dialog>
+    
+    </>
   );
 };
 
@@ -63,8 +69,16 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   addBtn:{
-    backgroundColor: "#fff"
-    
+    backgroundColor: "#fff",
+    marginVertical: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+    width: 100,
+    height: 50,
+    elevation: 5,
+    borderRadius: 100,
+
   }
 });
 
