@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   StyleSheet,
   TouchableOpacity,
+  TextInput,
 } from "react-native";
 import React from "react";
 import Task from "../components/Task";
@@ -47,7 +48,11 @@ const Home = ({ navigation }) => {
       </TouchableOpacity>
     </View>
     <Dialog visible={true}>
-      <
+      <Dialog.Title>Add Something To Do</Dialog.Title>
+      <Dialog.Content>
+        <TextInput placeholder="Title"/>
+        <TextInput placeholder="Description"/>
+      </Dialog.Content>
     </Dialog>
     
     </>
@@ -74,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
-    width: 100,
+    width: 150,
     height: 50,
     elevation: 5,
     borderRadius: 100,
