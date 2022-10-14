@@ -36,16 +36,16 @@ const styles = StyleSheet.create({
   },
 
   taskContainer: {
-    width: '20%',
+    width: 100,
   },
   taskTitle:{
-    marginVertical: 7,
-    fontSize: 70,
+    marginVertical: 3,
+    fontSize: 20,
     color: '#900',
   },
   taskDescription:{
     color: "red",
-    fontSize: 40,
+    // fontSize: 10,
   },
 
   dltIcon:{

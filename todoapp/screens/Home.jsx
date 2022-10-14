@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React from "react";
 import Task from "../components/Task";
-import Icon from "react-native-vactor-icons/Entypo";
+import Icon from "react-native-vector-icons/Entypo";
 // import { useNavigation } from '@react-navigation/native'
 
 const Home = ({ navigation }) => {
@@ -41,8 +41,8 @@ const Home = ({ navigation }) => {
         ))}
       </SafeAreaView>
 
-      <TouchableOpacity>
-        <Icon />
+      <TouchableOpacity style={styles.addBtn}>
+        <Icon size={20} name="add-to-list" />
       </TouchableOpacity>
     </View>
   );
@@ -62,6 +62,10 @@ const styles = StyleSheet.create({
     color: "white",
     backgroundColor: "black",
   },
+  addBtn:{
+    backgroundColor: "#fff"
+    
+  }
 });
 
 export default Home;
