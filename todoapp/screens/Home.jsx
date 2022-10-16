@@ -59,7 +59,7 @@ const Home = ({ navigation }) => {
           <Icon size={20} name="add" color="#900" />
         </TouchableOpacity>
       </View>
-      <Dialog visible={openDialog} style={styles.addDialog}>
+      <Dialog visible={openDialog} onDismiss={handleDialog} style={styles.addDialog}>
         <Dialog.Title>Add Something To Do</Dialog.Title>
         <Dialog.Content>
           <TextInput style={styles.inputFields} placeholder="Title" />
