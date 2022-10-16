@@ -47,11 +47,11 @@ const Home = ({ navigation }) => {
         <Icon size={20} name="add-to-list" color="#900"/>
       </TouchableOpacity>
     </View>
-    <Dialog visible={true}>
+    <Dialog visible={true} >
       <Dialog.Title>Add Something To Do</Dialog.Title>
       <Dialog.Content>
-        <TextInput placeholder="Title"/>
-        <TextInput placeholder="Description"/>
+        <TextInput style={styles.inputFields} placeholder="Title"/>
+        <TextInput  style={styles.inputFields} placeholder="Description"/>
         <View style={{flexDirection: "row", alignItems: "center"}}>
           <Button color="#900">
             Add
@@ -93,7 +93,22 @@ const styles = StyleSheet.create({
     elevation: 5,
     borderRadius: 100,
 
+  },
+  inputFields:{
+    borderWidth: 1,
+    backgroundColor: "lightgray",
+    fontSize: 12,
+    // marginLeft: 10,
+    padding: 10,
+    borderRadius: 10,
+    marginVertical: 10,
+    borderColor: "transparent",
+    
+
+    
   }
+
+
 });
 
 export default Home;
