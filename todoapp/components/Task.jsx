@@ -19,7 +19,7 @@ const Task = ({ title, description, status, taskId }) => {
       <Text style={styles.taskTitle}>{title}</Text>
       <Text style={styles.taskDescription}>{description}</Text>
       </View>
-      <Checkbox style={styles.checkbox} onPress={handleCompleted}  status={completed ? "checked" : "unchecked"} color="#474747"/>
+      <Checkbox onPress={handleCompleted}  status={completed ? "checked" : "unchecked"} color="#474747"/>
       <Icon name="delete" color="#fff"  size={20} style={styles.dltIcon} onPress={handleDelete} />
     </View>
   );
@@ -32,11 +32,12 @@ const styles = StyleSheet.create({
     padding: 10,
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
   },
 
   taskContainer: {
-    width: 100,
+    width: "70%",
+    // justifyContent: "center",
   },
   taskTitle:{
     marginVertical: 3,
@@ -55,8 +56,5 @@ const styles = StyleSheet.create({
 
 
   }, 
-  checkbox:{
-    
 
-  }
 });
