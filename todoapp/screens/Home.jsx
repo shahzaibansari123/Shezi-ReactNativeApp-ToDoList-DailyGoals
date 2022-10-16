@@ -11,7 +11,7 @@ import {
 import React from "react";
 import Task from "../components/Task";
 import Icon from "react-native-vector-icons/Entypo";
-import { Dialog } from "react-native-paper";
+import { Button, Dialog } from "react-native-paper";
 // import { useNavigation } from '@react-navigation/native'
 
 const Home = ({ navigation }) => {
@@ -52,6 +52,15 @@ const Home = ({ navigation }) => {
       <Dialog.Content>
         <TextInput placeholder="Title"/>
         <TextInput placeholder="Description"/>
+        <View style={{flexDirection: "row", alignItems: "center"}}>
+          <Button color="#900">
+            Add
+          </Button>
+          <TouchableOpacity>
+            <Text>Cancel</Text>
+          </TouchableOpacity>
+
+        </View>
       </Dialog.Content>
     </Dialog>
     
