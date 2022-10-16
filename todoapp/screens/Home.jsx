@@ -47,7 +47,7 @@ const Home = ({ navigation }) => {
         <Icon size={20} name="add-to-list" color="#900"/>
       </TouchableOpacity>
     </View>
-    <Dialog visible={true} >
+    <Dialog visible={true} style={styles.addDialog}>
       <Dialog.Title>Add Something To Do</Dialog.Title>
       <Dialog.Content>
         <TextInput style={styles.inputFields} placeholder="Title"/>
@@ -106,6 +106,10 @@ const styles = StyleSheet.create({
     
 
     
+  },
+  addDialog:{
+    borderRadius: 10,
+    // elevation: 30
   }
 
 
