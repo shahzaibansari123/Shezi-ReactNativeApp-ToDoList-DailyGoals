@@ -16,11 +16,18 @@ import { Button, Dialog } from "react-native-paper";
 
 const Home = ({ navigation }) => {
   const [openDialog, setOpenDialog] = useState(false);
+  const [title, setTitle] = useState(" ");
+  const [description, setDescription] = useState(" ");
   // const navigation= useNavigation()
 
-  const handleDialog=()=>{
-    setOpenDialog(!openDialog)
-  }
+  const handleDialog = () => {
+    setOpenDialog(!openDialog);
+  };
+
+  const addTask = () => {
+    console.log(title, description)
+    console.log("Task Added");
+  };
 
   const tasks = [
     {
@@ -52,20 +59,35 @@ const Home = ({ navigation }) => {
               taskId={item._id}
             />
           ))}
-
         </SafeAreaView>
 
         <TouchableOpacity style={styles.addBtn} onPress={handleDialog}>
           <Icon size={20} name="add" color="#900" />
         </TouchableOpacity>
       </View>
-      <Dialog visible={openDialog} onDismiss={handleDialog} style={styles.addDialog}>
+      <Dialog
+        visible={openDialog}
+        onDismiss={handleDialog}
+        style={styles.addDialog}
+      >
         <Dialog.Title>Add Something To Do</Dialog.Title>
         <Dialog.Content>
-          <TextInput style={styles.inputFields} placeholder="Title" />
-          <TextInput style={styles.inputFields} placeholder="Description" />
+          <TextInput
+            style={styles.inputFields}
+            placeholder="Title"
+            value={title}
+            onChangeText={setTitle}
+          />
+          <TextInput
+            style={styles.inputFields}
+            placeholder="Description"
+            value={description}
+            onChangeText={setDescription}
+          />
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <Button color="#900">Add</Button>
+            <Button color="#900" onPress={addTask}>
+              Add
+            </Button>
             <TouchableOpacity onPress={handleDialog}>
               <Text>Cancel</Text>
             </TouchableOpacity>
@@ -118,9 +140,6 @@ const styles = StyleSheet.create({
 });
 
 export default Home;
-
-
-
 
 // =======================
 //    setting status bar height manully as safe area view doesnot work in android
