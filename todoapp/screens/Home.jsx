@@ -82,7 +82,9 @@ const Home = ({ navigation }) => {
             style={styles.inputFields}
             placeholder="Description"
             value={description}
+            // onChangeText={setDescription}
             onChangeText={setDescription}
+
           />
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Button color="#900" onPress={addTask}>
