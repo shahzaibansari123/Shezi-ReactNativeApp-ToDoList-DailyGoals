@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import Task from "../components/Task";
@@ -25,7 +26,7 @@ const Home = ({ navigation }) => {
   };
 
   const addTask = () => {
-    console.log(title, description)
+    console.log(title, description);
     console.log("Task Added");
   };
 
@@ -47,20 +48,21 @@ const Home = ({ navigation }) => {
   return (
     <>
       <View style={styles.container}>
-        <SafeAreaView>
-          <Text style={styles.heading}>All Tasks:</Text>
+        <ScrollView>
+          <SafeAreaView>
+            <Text style={styles.heading}>All Tasks:</Text>
 
-          {tasks.map((item) => (
-            <Task
-              key={item._id}
-              title={item.title}
-              description={item.description}
-              completed={item.completed}
-              taskId={item._id}
-            />
-          ))}
-        </SafeAreaView>
-
+            {tasks.map((item) => (
+              <Task
+                key={item._id}
+                title={item.title}
+                description={item.description}
+                completed={item.completed}
+                taskId={item._id}
+              />
+            ))}
+          </SafeAreaView>
+        </ScrollView>
         <TouchableOpacity style={styles.addBtn} onPress={handleDialog}>
           <Icon size={20} name="add" color="#900" />
         </TouchableOpacity>
@@ -84,7 +86,6 @@ const Home = ({ navigation }) => {
             value={description}
             // onChangeText={setDescription}
             onChangeText={setDescription}
-
           />
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Button color="#900" onPress={addTask}>
