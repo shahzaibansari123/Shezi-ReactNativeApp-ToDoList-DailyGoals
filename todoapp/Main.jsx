@@ -13,10 +13,10 @@ const Main = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="home">
+      <Stack.Navigator initialRouteName="login">
         <Stack.Screen name="home" component={Home} options={{headerShown: false}}/>
         <Stack.Screen name="login" component={Login}/>
-        <Stack.Screen name="profile" component={Profile}/>
+        <Stack.Screen name="profile" component={Profile} />
 
 
       </Stack.Navigator>
