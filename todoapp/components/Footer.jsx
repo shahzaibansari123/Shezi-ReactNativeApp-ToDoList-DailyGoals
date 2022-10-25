@@ -7,16 +7,16 @@ const Footer = () => {
   const navigation=useNavigation()
   return (
     <View style={{
-        padding: 30,
+        padding: 10,
         justifyContent: 'space-around',
-        backgroundColor: "#fff",
+        backgroundColor: "#900",
         flexDirection: "row",
     }}>
       <TouchableOpacity>
-        <Icon name="home" color="#900" size={30} onPress={()=>navigation.navigate("home")}/>
+        <Icon name="home" color="#fff" size={30} onPress={()=>navigation.navigate("home")}/>
       </TouchableOpacity>
       <TouchableOpacity>
-        <Icon name="user" color="#900" size={30} onPress={()=>navigation.navigate("profile")}/>
+        <Icon name="user" color="#fff" size={30} onPress={()=>navigation.navigate("profile")}/>
       </TouchableOpacity>
     </View>
   )

@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     fontFamily: "sans-serif-condensed",
     fontWeight: "bold",
     color: "white",
-    backgroundColor: "black",
+    backgroundColor: "#900",
   },
   addBtn: {
     backgroundColor: "#fff",
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: 50,
     height: 50,
-    elevation: 5,
+    elevation: 10,
     borderRadius: 100,
   },
   inputFields: {
