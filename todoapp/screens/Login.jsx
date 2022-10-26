@@ -3,8 +3,13 @@ import React from 'react'
 
 const Login = () => {
   return (
-    <View>
-      <Text>Login</Text>
+    <View style={{
+      flex: 1,
+      backgroundColor: "#fff",
+      alignItems: "center",
+      justifyContent: "center",
+    }}>
+      <Text>Login Screen</Text>
     </View>
   )
 }
