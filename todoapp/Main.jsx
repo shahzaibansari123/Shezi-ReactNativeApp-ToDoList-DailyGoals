@@ -15,7 +15,7 @@ const Main = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="login">
         <Stack.Screen name="home" component={Home} options={{headerShown: false}}/>
-        <Stack.Screen name="login" component={Login}/>
+        <Stack.Screen name="login" component={Login} options={{headerShown: false}}/>
         <Stack.Screen name="profile" component={Profile} />
 
 
