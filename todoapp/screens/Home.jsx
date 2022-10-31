@@ -17,8 +17,8 @@ import { Button, Dialog } from "react-native-paper";
 
 const Home = ({ navigation }) => {
   const [openDialog, setOpenDialog] = useState(false);
-  const [title, setTitle] = useState(" ");
-  const [description, setDescription] = useState(" ");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   // const navigation= useNavigation()
 
   const handleDialog = () => {
@@ -47,7 +47,7 @@ const Home = ({ navigation }) => {
 
   return (
     <>
-      {Platform.OS === "android" && <StatusBar backgroundColor="#0098A6"/>}
+      {Platform.OS === "android" && <StatusBar backgroundColor="#0098A6" />}
       <View style={styles.container}>
         <ScrollView>
           <SafeAreaView>
@@ -73,23 +73,29 @@ const Home = ({ navigation }) => {
         onDismiss={handleDialog}
         style={styles.addDialog}
       >
-        <Dialog.Title>Add Something To Do</Dialog.Title>
+        <Dialog.Title
+          style={{ fontFamily: "sans-serif-condensed", color: "#fff" }}
+        >
+          Add Something To Do
+        </Dialog.Title>
         <Dialog.Content>
           <TextInput
             style={styles.inputFields}
             placeholder="Title"
+            placeholderTextColor="black" 
             value={title}
             onChangeText={setTitle}
           />
           <TextInput
             style={styles.inputFields}
             placeholder="Description"
+            placeholderTextColor="black"
             value={description}
             // onChangeText={setDescription}
             onChangeText={setDescription}
           />
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <Button color="#0098A6" onPress={addTask}>
+            <Button color="black" onPress={addTask}>
               Add
             </Button>
             <TouchableOpacity onPress={handleDialog}>
@@ -106,9 +112,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "black",
     flex: 1,
-    paddingTop:
-      Platform.OS === "IOS"
-        ? 0 : null,
+    paddingTop: Platform.OS === "IOS" ? 0 : null,
   },
   heading: {
     textAlign: "center",
@@ -117,7 +121,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "Black",
     backgroundColor: "#0098A6",
-    textTransform: "uppercase"
+    textTransform: "uppercase",
   },
   addBtn: {
     backgroundColor: "#0098A6",
@@ -132,7 +136,8 @@ const styles = StyleSheet.create({
   },
   inputFields: {
     borderWidth: 1,
-    backgroundColor: "lightgray",
+    color: "black",
+    backgroundColor: "white",
     fontSize: 12,
     // marginLeft: 10,
     padding: 10,
@@ -142,6 +147,9 @@ const styles = StyleSheet.create({
   },
   addDialog: {
     borderRadius: 10,
+    backgroundColor: "#0098A6",
+    color: "#fff",
+
     // elevation: 30
   },
 });
