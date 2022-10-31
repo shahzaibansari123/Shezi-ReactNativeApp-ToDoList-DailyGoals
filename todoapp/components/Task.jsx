@@ -33,19 +33,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-evenly",
+    borderBottomWidth: 1,
+    borderStyle: "dotted",
+    borderBottomColor: "#0098A6",
   },
 
   taskContainer: {
     width: "70%",
+    
     // justifyContent: "center",
   },
   taskTitle:{
     marginVertical: 3,
+    textTransform: "uppercase",
     fontSize: 20,
     color: '#0098A6',
+    fontFamily: "sans-serif-condensed",
   },
   taskDescription:{
-    color: "red",
+    color: "white",
+    fontFamily: "sans-serif-condensed",
     // fontSize: 10,
   },
 

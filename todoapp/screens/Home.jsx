@@ -47,8 +47,7 @@ const Home = ({ navigation }) => {
 
   return (
     <>
-      {/* <StatusBar backgroundColor="#0098A6" /> */}
-      {Platform.OS === "android" ? <StatusBar backgroundColor="#0098A6"/> : <></>}
+      {Platform.OS === "android" && <StatusBar backgroundColor="#0098A6"/>}
       <View style={styles.container}>
         <ScrollView>
           <SafeAreaView>
@@ -66,7 +65,7 @@ const Home = ({ navigation }) => {
           </SafeAreaView>
         </ScrollView>
         <TouchableOpacity style={styles.addBtn} onPress={handleDialog}>
-          <Icon size={30} name="add" color="black" />
+          <Icon size={30} name="add" color="#fff" />
         </TouchableOpacity>
       </View>
       <Dialog
@@ -114,10 +113,11 @@ const styles = StyleSheet.create({
   heading: {
     textAlign: "center",
     fontSize: 28,
-    fontFamily: "sans-serif",
+    fontFamily: "sans-serif-condensed",
     fontWeight: "bold",
-    color: "white",
+    color: "Black",
     backgroundColor: "#0098A6",
+    textTransform: "uppercase"
   },
   addBtn: {
     backgroundColor: "#0098A6",
