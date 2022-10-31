@@ -47,6 +47,8 @@ const Home = ({ navigation }) => {
 
   return (
     <>
+      {/* <StatusBar backgroundColor="#0098A6" /> */}
+      {Platform.OS === "android" ? <StatusBar backgroundColor="#0098A6"/> : <></>}
       <View style={styles.container}>
         <ScrollView>
           <SafeAreaView>
@@ -64,7 +66,7 @@ const Home = ({ navigation }) => {
           </SafeAreaView>
         </ScrollView>
         <TouchableOpacity style={styles.addBtn} onPress={handleDialog}>
-          <Icon size={20} name="add" color="#900" />
+          <Icon size={30} name="add" color="black" />
         </TouchableOpacity>
       </View>
       <Dialog
@@ -88,7 +90,7 @@ const Home = ({ navigation }) => {
             onChangeText={setDescription}
           />
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <Button color="#900" onPress={addTask}>
+            <Button color="#0098A6" onPress={addTask}>
               Add
             </Button>
             <TouchableOpacity onPress={handleDialog}>
@@ -103,27 +105,29 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: "black",
     flex: 1,
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    paddingTop:
+      Platform.OS === "IOS"
+        ? 0 : null,
   },
   heading: {
     textAlign: "center",
     fontSize: 28,
-    fontFamily: "sans-serif-condensed",
+    fontFamily: "sans-serif",
     fontWeight: "bold",
     color: "white",
-    backgroundColor: "#900",
+    backgroundColor: "#0098A6",
   },
   addBtn: {
-    backgroundColor: "#fff",
+    backgroundColor: "#0098A6",
     marginVertical: 20,
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
     width: 50,
     height: 50,
-    elevation: 10,
+    elevation: 20,
     borderRadius: 100,
   },
   inputFields: {

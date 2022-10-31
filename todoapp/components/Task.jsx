@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   taskTitle:{
     marginVertical: 3,
     fontSize: 20,
-    color: '#900',
+    color: '#0098A6',
   },
   taskDescription:{
     color: "red",
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
 
   dltIcon:{
-    backgroundColor: "#900",
+    backgroundColor: "#0098A6",
     borderRadius: 50,
     padding: 10,
 

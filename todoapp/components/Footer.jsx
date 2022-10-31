@@ -9,7 +9,7 @@ const Footer = () => {
     <View style={{
         padding: 10,
         justifyContent: 'space-around',
-        backgroundColor: "#900",
+        backgroundColor: "#0098A6",
         flexDirection: "row",
     }}>
       <TouchableOpacity>

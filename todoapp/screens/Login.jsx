@@ -9,7 +9,7 @@ const Login = () => {
       alignItems: "center",
       justifyContent: "center",
     }}>
-      <Text>Login Screen</Text>
+      <Text>Welcome</Text>
     </View>
   )
 }
