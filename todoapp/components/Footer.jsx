@@ -13,10 +13,10 @@ const Footer = () => {
         flexDirection: "row",
     }}>
       <TouchableOpacity>
-        <Icon name="home" color="#fff" size={30} onPress={()=>navigation.navigate("home")}/>
+        <Icon name="home" color="#fff" size={30} onPress={()=>navigation.navigate("Home")}/>
       </TouchableOpacity>
       <TouchableOpacity>
-        <Icon name="user" color="#fff" size={30} onPress={()=>navigation.navigate("profile")}/>
+        <Icon name="user" color="#fff" size={30} onPress={()=>navigation.navigate("Profile")}/>
       </TouchableOpacity>
     </View>
   )
