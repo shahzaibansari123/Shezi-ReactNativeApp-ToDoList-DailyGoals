@@ -82,7 +82,7 @@ const Home = ({ navigation }) => {
           <TextInput
             style={styles.inputFields}
             placeholder="Title"
-            placeholderTextColor="black" 
+            placeholderTextColor="black"
             value={title}
             onChangeText={setTitle}
           />
@@ -111,6 +111,7 @@ const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "black",
+
     flex: 1,
     paddingTop: Platform.OS === "IOS" ? 0 : null,
   },
@@ -119,9 +120,11 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontFamily: "sans-serif-condensed",
     fontWeight: "bold",
-    color: "Black",
+    color: "white",
     backgroundColor: "#0098A6",
-    textTransform: "uppercase",
+    // backgroundColor: "#cc2b5e → #753a88",
+    textTransform: "capitalize",
+    fontStyle: "italic",
   },
   addBtn: {
     backgroundColor: "#0098A6",
