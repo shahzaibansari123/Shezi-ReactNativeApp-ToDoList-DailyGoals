@@ -9,7 +9,7 @@ const Login = () => {
       alignItems: "center",
       justifyContent: "center",
     }}>
-      <Text>Welcome</Text>
+      <Text style={{fontSize: 20, margin: 20}}>Welcome</Text>
     </View>
   )
 }
