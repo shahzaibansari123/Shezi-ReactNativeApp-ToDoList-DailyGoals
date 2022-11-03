@@ -15,13 +15,14 @@ const Login = () => {
       <View style={{ width: "70%" }}>
         <TextInput placeholder="email" value={email} onChangeText={setEmail} />
         <TextInput
+          secureTextEntry
           placeholder="password"
           value={password}
           onChangeText={setPassword}
         />
       </View>
       <Button disabled={!email || !password}>
-        <Text style={{color: "#fff"}}>Login</Text>
+        <Text style={{ color: "#fff" }}>Login</Text>
       </Button>
     </View>
   );
