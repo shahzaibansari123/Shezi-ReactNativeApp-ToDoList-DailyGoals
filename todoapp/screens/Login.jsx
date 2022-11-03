@@ -1,4 +1,4 @@
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, Button } from "react-native";
 import React from "react";
 
 const Login = () => {
@@ -20,6 +20,9 @@ const Login = () => {
           onChangeText={setPassword}
         />
       </View>
+      <Button disabled={!email || !password}>
+        <Text style={{color: "#fff"}}>Login</Text>
+      </Button>
     </View>
   );
 };
