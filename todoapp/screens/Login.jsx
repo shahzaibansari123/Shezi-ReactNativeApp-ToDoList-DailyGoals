@@ -7,8 +7,10 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { Button } from "react-native-paper";
+// import { useNavigation } from "@react-navigation/native";
 
-const Login = () => {
+const Login = ({navigation}) => {
+  // const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const loginHandler = () => {
@@ -48,7 +50,7 @@ const Login = () => {
         <Text style={{ color: "#fff" }}>Login</Text>
       </Button>
       <Text style={{ marginTop: 20 }}>or</Text>
-      <TouchableOpacity onPress={() => navigate.navigate("register")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Register")}>
         <Text style={{ color: "#900", height: 30, margin: 30 }}>Signup</Text>
       </TouchableOpacity>
     </View>
@@ -69,9 +71,9 @@ const Styles = StyleSheet.create({
     marginVertical: 10,
     borderColor: "transparent",
   },
-  btn:{
+  btn: {
     backgroundColor: "#900",
     width: "70%",
     padding: 5,
-  }
+  },
 });
