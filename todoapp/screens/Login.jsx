@@ -1,8 +1,11 @@
 import { View, Text, TextInput,TouchableOpacity, StyleSheet } from "react-native";
-import React from "react";
+import React , {useState} from "react";
 import { Button } from "react-native-paper";
 
 const Login = () => {
+  const [email,setEmail]=useState("")
+  const [password,setPassword]=useState("")
+
   return (
     <View
       style={{
