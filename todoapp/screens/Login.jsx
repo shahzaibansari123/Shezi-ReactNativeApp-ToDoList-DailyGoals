@@ -31,7 +31,9 @@ const Login = () => {
         <Text style={{ color: "#fff" }}>Login</Text>
       </Button>
       <Text style={{marginTop: 20}}>or</Text>
-      <TouchableOpacity onPress={()=>navigate.navigate("register")}></TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigate.navigate("register")}>
+        <Text style={{color: "#900", height: 20, width: 30}}>Signup</Text>
+      </TouchableOpacity>
     </View>
   );
 };
