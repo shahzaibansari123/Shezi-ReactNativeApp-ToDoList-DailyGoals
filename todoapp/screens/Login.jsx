@@ -1,5 +1,6 @@
-import { View, Text, TextInput, Button, Touchable, TouchableOpacity } from "react-native";
+import { View, Text, TextInput,TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
+import { Button } from "react-native-paper";
 
 const Login = () => {
   return (
@@ -15,13 +16,13 @@ const Login = () => {
       <View style={{ width: "70%" }}>
         <TextInput 
           placeholder="Email" 
-          style={StyleSheet.input}
+          style={Styles.input}
           value={email} 
           onChangeText={setEmail} 
         />
         <TextInput
           secureTextEntry
-          style={StyleSheet.input}
+          style={Styles.input}
           placeholder="Password"
           value={password}
           onChangeText={setPassword}
@@ -32,10 +33,59 @@ const Login = () => {
       </Button>
       <Text style={{marginTop: 20}}>or</Text>
       <TouchableOpacity onPress={()=>navigate.navigate("register")}>
-        <Text style={{color: "#900", height: 20, width: 30}}>Signup</Text>
+        <Text style={{color: "#900", height: 30, margin: 30}}>Signup</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
 export default Login;
+
+const Styles = StyleSheet.create({
+  container: {
+    backgroundColor: "black",
+
+    flex: 1,
+    paddingTop: Platform.OS === "IOS" ? 0 : null,
+  },
+  heading: {
+    textAlign: "center",
+    fontSize: 28,
+    fontFamily: "sans-serif-condensed",
+    fontWeight: "bold",
+    color: "white",
+    backgroundColor: "#0098A6",
+    // backgroundColor: "#cc2b5e → #753a88",
+    textTransform: "capitalize",
+    fontStyle: "italic",
+  },
+  addBtn: {
+    backgroundColor: "#0098A6",
+    marginVertical: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+    width: 50,
+    height: 50,
+    elevation: 20,
+    borderRadius: 100,
+  },
+  inputFields: {
+    borderWidth: 1,
+    color: "black",
+    backgroundColor: "white",
+    fontSize: 12,
+    // marginLeft: 10,
+    padding: 10,
+    borderRadius: 10,
+    marginVertical: 10,
+    borderColor: "transparent",
+  },
+  addDialog: {
+    borderRadius: 10,
+    backgroundColor: "#0098A6",
+    color: "#fff",
+
+    // elevation: 30
+  },
+});
