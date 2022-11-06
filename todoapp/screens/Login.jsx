@@ -5,6 +5,9 @@ import { Button } from "react-native-paper";
 const Login = () => {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
+  const loginHandler=()=>{
+    console.log("login")
+  }
 
   return (
     <View
@@ -31,7 +34,7 @@ const Login = () => {
           onChangeText={setPassword}
         />
       </View>
-      <Button disabled={!email || !password}>
+      <Button disabled={!email || !password} style={Styles.addBtn} on onPress={loginHandler}>
         <Text style={{ color: "#fff" }}>Login</Text>
       </Button>
       <Text style={{marginTop: 20}}>or</Text>
