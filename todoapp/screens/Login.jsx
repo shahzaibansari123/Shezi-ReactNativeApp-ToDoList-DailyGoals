@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Button } from "react-native";
+import { View, Text, TextInput, Button, Touchable, TouchableOpacity } from "react-native";
 import React from "react";
 
 const Login = () => {
@@ -13,10 +13,16 @@ const Login = () => {
     >
       <Text style={{ fontSize: 20, margin: 20 }}>Welcome</Text>
       <View style={{ width: "70%" }}>
-        <TextInput placeholder="email" value={email} onChangeText={setEmail} />
+        <TextInput 
+          placeholder="Email" 
+          style={StyleSheet.input}
+          value={email} 
+          onChangeText={setEmail} 
+        />
         <TextInput
           secureTextEntry
-          placeholder="password"
+          style={StyleSheet.input}
+          placeholder="Password"
           value={password}
           onChangeText={setPassword}
         />
@@ -24,6 +30,8 @@ const Login = () => {
       <Button disabled={!email || !password}>
         <Text style={{ color: "#fff" }}>Login</Text>
       </Button>
+      <Text style={{marginTop: 20}}>or</Text>
+      <TouchableOpacity onPress={()=>navigate.navigate("register")}></TouchableOpacity>
     </View>
   );
 };
