@@ -95,7 +95,7 @@ const Home = ({ navigation }) => {
             onChangeText={setDescription}
           />
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <Button color="black" onPress={addTask}>
+            <Button color="black" onPress={addTask} style={styles.addTaskBtn}>
               Add
             </Button>
             <TouchableOpacity onPress={handleDialog}>
@@ -156,6 +156,9 @@ const styles = StyleSheet.create({
 
     // elevation: 30
   },
+  // addTaskBtn:{
+  //   backgroundColor: "blue",
+  // }
 });
 
 export default Home;
