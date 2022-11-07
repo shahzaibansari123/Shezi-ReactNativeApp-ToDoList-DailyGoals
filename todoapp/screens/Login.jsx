@@ -9,7 +9,7 @@ import React, { useState } from "react";
 import { Button } from "react-native-paper";
 // import { useNavigation } from "@react-navigation/native";
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
   // const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,6 +31,7 @@ const Login = ({navigation}) => {
         <TextInput
           placeholder="Email"
           style={Styles.inputFields}
+          placeholderTextColor="black"
           value={email}
           onChangeText={setEmail}
         />
@@ -38,6 +39,7 @@ const Login = ({navigation}) => {
           secureTextEntry
           style={Styles.inputFields}
           placeholder="Password"
+          placeholderTextColor="black"
           value={password}
           onChangeText={setPassword}
         />
@@ -49,9 +51,31 @@ const Login = ({navigation}) => {
       >
         <Text style={Styles.btnTxt}>Login</Text>
       </Button>
-      <Text style={{ marginTop: 20 }}>or</Text>
+      <Text
+        style={{
+          marginTop: 20,
+          fontFamily: "sans-serif-condensed",
+          fontWeight: "bold",
+          color: "#fff",
+          fontSize: 20,
+        }}
+      >
+        or
+      </Text>
       <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-        <Text style={{ color: "#900", height: 30, margin: 30 }}>Signup</Text>
+        <Text
+          style={{
+            color: "lightgray",
+            height: 30,
+            margin: 20,
+            fontFamily: "sans-serif-condensed",
+            fontWeight: "bold",
+            textDecorationLine: "underline",
+            fontSize: 16,
+          }}
+        >
+          Signup
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -80,6 +104,7 @@ const Styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 10,
     borderColor: "transparent",
+    fontFamily: "sans-serif-condensed",
   },
   btn: {
     backgroundColor: "#0098A6",
@@ -87,12 +112,16 @@ const Styles = StyleSheet.create({
     padding: 5,
     marginVertical: 10,
     borderRadius: 10,
+    
   },
-  btnTxt:{
+  btnTxt: {
     fontFamily: "sans-serif-condensed",
-    // fontWeight: "bold",
+    fontWeight: "bold",
     color: "#fff",
     textTransform: "capitalize",
     // fontStyle: "italic",
-  }
+    fontSize: 16,
+    
+
+  },
 });

@@ -147,6 +147,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 10,
     borderColor: "transparent",
+    fontFamily: "sans-serif-condensed",
   },
   addDialog: {
     borderRadius: 10,
