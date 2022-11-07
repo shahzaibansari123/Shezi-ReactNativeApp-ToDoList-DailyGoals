@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#0098A6",
     // backgroundColor: "#cc2b5e → #753a88",
     textTransform: "capitalize",
-    fontStyle: "italic",
+    // fontStyle: "italic",
   },
   addBtn: {
     backgroundColor: "#0098A6",

@@ -21,12 +21,12 @@ const Login = ({navigation}) => {
     <View
       style={{
         flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor: "#000",
         alignItems: "center",
         justifyContent: "center",
       }}
     >
-      <Text style={{ fontSize: 20, margin: 20 }}>Welcome</Text>
+      <Text style={Styles.heading}>Welcome</Text>
       <View style={{ width: "70%" }}>
         <TextInput
           placeholder="Email"
@@ -47,7 +47,7 @@ const Login = ({navigation}) => {
         style={Styles.btn}
         onPress={loginHandler}
       >
-        <Text style={{ color: "#fff" }}>Login</Text>
+        <Text style={Styles.btnTxt}>Login</Text>
       </Button>
       <Text style={{ marginTop: 20 }}>or</Text>
       <TouchableOpacity onPress={() => navigation.navigate("Register")}>
@@ -60,6 +60,16 @@ const Login = ({navigation}) => {
 export default Login;
 
 const Styles = StyleSheet.create({
+  heading: {
+    textAlign: "center",
+    fontSize: 20,
+    margin: 20,
+    fontFamily: "sans-serif-condensed",
+    fontWeight: "bold",
+    color: "white",
+    textTransform: "capitalize",
+    // fontStyle: "italic",
+  },
   inputFields: {
     borderWidth: 1,
     color: "black",
@@ -72,8 +82,17 @@ const Styles = StyleSheet.create({
     borderColor: "transparent",
   },
   btn: {
-    backgroundColor: "#900",
+    backgroundColor: "#0098A6",
     width: "70%",
     padding: 5,
+    marginVertical: 10,
+    borderRadius: 10,
   },
+  btnTxt:{
+    fontFamily: "sans-serif-condensed",
+    // fontWeight: "bold",
+    color: "#fff",
+    textTransform: "capitalize",
+    // fontStyle: "italic",
+  }
 });
