@@ -9,6 +9,10 @@ import Profile from "./screens/Profile";
 import Footer from "./components/Footer";
 import Register from "./screens/Register";
 
+
+
+
+
 const Main = () => {
   const Stack = createNativeStackNavigator();
 
@@ -18,7 +22,7 @@ const Main = () => {
         <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
         <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
         <Stack.Screen name="Register" component={Register} options={{headerShown: false}}/>
-        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Profile" component={Profile} options={{headerShown: false}}/>
 
 
       </Stack.Navigator>
