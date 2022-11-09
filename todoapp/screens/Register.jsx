@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import {Avatar} from 'react-native-paper'
 
 const Register = () => {
   return (
@@ -11,7 +12,9 @@ const Register = () => {
         justifyContent: "center",
       }}
     >
-      <Text>Register</Text>
+     <Avatar.Image size={200} style={{backgroundColor: "#900"}} source={{uri: avatar ? avatar : null}} />
+
+    
     </View>
   );
 };
