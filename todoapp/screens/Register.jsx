@@ -1,4 +1,10 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import { Avatar } from "react-native-paper";
 
@@ -18,8 +24,16 @@ const Register = () => {
         source={{ uri: avatar ? avatar : null }}
       />
       <TouchableOpacity onPress={imagehandler}>
-        <Text style={{backgroundColor: "#900"}}>Change your Image</Text>
+        <Text style={{ backgroundColor: "#900" }}>Change your Image</Text>
       </TouchableOpacity>
+      <View style={{ width: "70%" }}>
+        <TextInput
+          style={Styles.inputFields}
+          value={name}
+          onChangeText={setName}
+          placeholder="Enter your Name"
+        />
+      </View>
     </View>
   );
 };
