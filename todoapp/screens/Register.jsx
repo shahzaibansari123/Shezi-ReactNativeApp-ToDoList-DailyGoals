@@ -33,7 +33,20 @@ const Register = () => {
           onChangeText={setName}
           placeholder="Enter your Name"
         />
+          <TextInput
+          style={Styles.inputFields}
+          value={email}
+          onChangeText={setEmail}
+          placeholder="Enter your Email"
+        />
+          <TextInput
+          style={Styles.inputFields}
+          value={password}
+          onChangeText={setPassword}
+          placeholder="Enter your Password"
+        />
       </View>
+      
     </View>
   );
 };
