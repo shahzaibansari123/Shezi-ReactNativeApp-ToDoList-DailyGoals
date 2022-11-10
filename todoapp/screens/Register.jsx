@@ -6,7 +6,7 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import { Avatar } from "react-native-paper";
+import { Avatar, Button } from "react-native-paper";
 
 const Register = () => {
   return (
@@ -33,20 +33,23 @@ const Register = () => {
           onChangeText={setName}
           placeholder="Enter your Name"
         />
-          <TextInput
+        <TextInput
           style={Styles.inputFields}
           value={email}
           onChangeText={setEmail}
           placeholder="Enter your Email"
         />
-          <TextInput
+        <TextInput
+          secureTextEntry
           style={Styles.inputFields}
           value={password}
           onChangeText={setPassword}
           placeholder="Enter your Password"
         />
       </View>
-      
+      <Button disabled={!email || !password || !name} styles={Styles.btn}>
+        <Text style={Styles.btnTxt}>Register</Text>
+      </Button>
     </View>
   );
 };
