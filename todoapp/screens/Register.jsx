@@ -5,10 +5,21 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Avatar, Button } from "react-native-paper";
 
 const Register = () => {
+  const [avatar,setAvatar]= useState("")
+
+  const imagehandler=()=>{
+
+  }
+
+  const registerHandler=()=>{
+
+  }
+
+  
   return (
     <View
       style={{
@@ -50,6 +61,9 @@ const Register = () => {
       <Button disabled={!email || !password || !name} styles={Styles.btn}>
         <Text style={Styles.btnTxt}>Register</Text>
       </Button>
+      <TouchableOpacity onPress={()=>navigation.navigate("Login")}>
+        <Text style={{color: "#900", margin: 20, height: 30}}>Already have an Account, Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
