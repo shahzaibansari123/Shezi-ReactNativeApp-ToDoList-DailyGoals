@@ -10,6 +10,8 @@ import { Avatar, Button } from "react-native-paper";
 
 const Register = () => {
   const [avatar,setAvatar]= useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const imagehandler=()=>{
 
@@ -19,7 +21,7 @@ const Register = () => {
 
   }
 
-  
+
   return (
     <View
       style={{
