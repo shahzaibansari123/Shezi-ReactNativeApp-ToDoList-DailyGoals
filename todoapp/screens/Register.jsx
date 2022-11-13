@@ -10,6 +10,7 @@ import { Avatar, Button } from "react-native-paper";
 
 const Register = () => {
   const [avatar,setAvatar]= useState("")
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -60,7 +61,7 @@ const Register = () => {
           placeholder="Enter your Password"
         />
       </View>
-      <Button disabled={!email || !password || !name} styles={Styles.btn}>
+      <Button disabled={!email || !password || !name} styles={Styles.btn} onPress={registerHandler}>
         <Text style={Styles.btnTxt}>Register</Text>
       </Button>
       <TouchableOpacity onPress={()=>navigation.navigate("Login")}>
