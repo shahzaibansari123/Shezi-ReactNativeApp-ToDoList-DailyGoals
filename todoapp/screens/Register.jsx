@@ -20,7 +20,7 @@ const Register = ({navigation}) => {
   }
 
   const registerHandler=()=>{
-
+console.log("register here")
   }
 
 
