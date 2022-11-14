@@ -8,13 +8,14 @@ import {
 import React, { useState } from "react";
 import { Avatar, Button } from "react-native-paper";
 
-const Register = () => {
+const Register = ({navigation}) => {
   const [avatar,setAvatar]= useState("")
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const imagehandler=()=>{
+    navigation.navigate("Camera")
 
   }
 
