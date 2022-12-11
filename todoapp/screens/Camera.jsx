@@ -6,8 +6,10 @@ const Camera = () => {
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
 
-  // if (!permission)
-  // if (!permission.granted)
+  
+  if (!permission.granted){
+    return <View />
+  }
 
   const toggleCameraType=()=> {
     setType((current) =>
