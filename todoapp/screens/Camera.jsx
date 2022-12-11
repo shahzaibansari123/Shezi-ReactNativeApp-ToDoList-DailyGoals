@@ -6,6 +6,9 @@ const Camera = () => {
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
 
+  if (!permission){
+    return <Text>No Access to Camera</Text>
+  }
   
   if (!permission.granted){
     return <View />
