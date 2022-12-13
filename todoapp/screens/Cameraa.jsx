@@ -21,11 +21,11 @@ const Cameraa = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <Camera style={styles.camera} type={type}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
-            <Text style={styles.text}>Flip Camera</Text>
+    <View >
+      <Camera type={type}>
+        <View >
+          <TouchableOpacity onPress={toggleCameraType}>
+            <Text >Flip Camera</Text>
           </TouchableOpacity>
         </View>
       </Camera>
