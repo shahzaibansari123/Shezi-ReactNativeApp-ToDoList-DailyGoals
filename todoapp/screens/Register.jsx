@@ -8,21 +8,19 @@ import {
 import React, { useState } from "react";
 import { Avatar, Button } from "react-native-paper";
 
-const Register = ({navigation}) => {
-  const [avatar,setAvatar]= useState("")
+const Register = ({ navigation }) => {
+  const [avatar, setAvatar] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const imagehandler=()=>{
-    navigation.navigate("Cameraa")
+  const imagehandler = () => {
+    navigation.navigate("Cameraa");
+  };
 
-  }
-
-  const registerHandler=()=>{
-console.log("register here")
-  }
-
+  const registerHandler = () => {
+    console.log("register here");
+  };
 
   return (
     <View
@@ -35,11 +33,11 @@ console.log("register here")
     >
       <Avatar.Image
         size={200}
-        style={{ backgroundColor: "#0098A6" }}
+        style={{ backgroundColor: "#0098A6" , margin: 10}}
         source={{ uri: avatar ? avatar : null }}
       />
       <TouchableOpacity onPress={imagehandler}>
-        <Text style={{ backgroundColor: "#900" }}>Change your Image</Text>
+        <Text style={Styles.btnTxt}>Change your Image</Text>
       </TouchableOpacity>
       <View style={{ width: "70%" }}>
         <TextInput
@@ -62,14 +60,33 @@ console.log("register here")
           placeholder="Enter your Password"
         />
       </View>
-      <Button disabled={!email || !password || !name} style={Styles.btn} onPress={registerHandler}>
+      <Button
+        disabled={!email || !password || !name}
+        style={Styles.btn}
+        onPress={registerHandler}
+      >
         <Text style={Styles.btnTxt}>Register</Text>
       </Button>
-      <View style={{flexDirection: "row"}}>
-        <Text style={{color: "white"}}>Already have an Account?</Text>
-      <TouchableOpacity >
-        <Text onPress={()=>navigation.navigate("Login")} style={{color: "#0098A6", marginLeft: 10, height: 30, textDecorationLine: 'underline'}}>Login</Text>
-      </TouchableOpacity>
+      <View style={{ flexDirection: "row" }}>
+        <Text style={Styles.btnTxt}>Already have an Account?</Text>
+        <TouchableOpacity>
+          <Text
+            onPress={() => navigation.navigate("Login")}
+            style={{
+              fontFamily: "sans-serif-condensed",
+              fontWeight: "bold",
+              color: "#fff",
+              textTransform: "capitalize",
+              // fontStyle: "italic",
+              fontSize: 16,
+              marginLeft: 10,
+              height: 30,
+              textDecorationLine: "underline",
+            }}
+          >
+            Login
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
