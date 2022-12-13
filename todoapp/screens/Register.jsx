@@ -35,7 +35,7 @@ console.log("register here")
     >
       <Avatar.Image
         size={200}
-        style={{ backgroundColor: "#900" }}
+        style={{ backgroundColor: "#0098A6" }}
         source={{ uri: avatar ? avatar : null }}
       />
       <TouchableOpacity onPress={imagehandler}>
@@ -62,12 +62,15 @@ console.log("register here")
           placeholder="Enter your Password"
         />
       </View>
-      <Button disabled={!email || !password || !name} styles={Styles.btn} onPress={registerHandler}>
+      <Button disabled={!email || !password || !name} style={Styles.btn} onPress={registerHandler}>
         <Text style={Styles.btnTxt}>Register</Text>
       </Button>
-      <TouchableOpacity onPress={()=>navigation.navigate("Login")}>
-        <Text style={{color: "#900", margin: 20, height: 30}}>Already have an Account, Login</Text>
+      <View style={{flexDirection: "row"}}>
+        <Text style={{color: "white"}}>Already have an Account?</Text>
+      <TouchableOpacity >
+        <Text onPress={()=>navigation.navigate("Login")} style={{color: "#0098A6", marginLeft: 10, height: 30, textDecorationLine: 'underline'}}>Login</Text>
       </TouchableOpacity>
+      </View>
     </View>
   );
 };

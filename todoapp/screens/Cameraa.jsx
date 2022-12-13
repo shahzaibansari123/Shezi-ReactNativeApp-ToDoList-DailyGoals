@@ -30,20 +30,20 @@ const Cameraa = () => {
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
 
-  if (!permission){
-    return <Text>No Access to Camera</Text>
+  if (!permission) {
+    return <Text>No Access to Camera</Text>;
   }
 
-  if (!permission.granted){
+  if (!permission.granted) {
     // requestPermission(false)
-    return <View />
+    return <View />;
   }
 
-  const toggleCameraType=()=> {
+  const toggleCameraType = () => {
     setType((current) =>
       current === CameraType.back ? CameraType.front : CameraType.back
     );
-  }
+  };
 
   return (
     <View style={{ flex: 1 }}>
