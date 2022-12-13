@@ -8,7 +8,7 @@ import Login from "./screens/Login";
 import Profile from "./screens/Profile";
 import Footer from "./components/Footer";
 import Register from "./screens/Register";
-import Camera from "./screens/Camera";
+import Cameraa from "./screens/Cameraa";
 
 
 
@@ -24,7 +24,7 @@ const Main = () => {
         <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
         <Stack.Screen name="Register" component={Register} options={{headerShown: false}}/>
         <Stack.Screen name="Profile" component={Profile} options={{headerShown: false}}/>
-        <Stack.Screen name="Camera" component={Camera} options={{headerShown: false}}/>
+        <Stack.Screen name="Cameraa" component={Cameraa} options={{headerShown: false}}/>
 
 
       </Stack.Navigator>

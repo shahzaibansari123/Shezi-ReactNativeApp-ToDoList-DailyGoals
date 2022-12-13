@@ -15,7 +15,7 @@ const Register = ({navigation}) => {
   const [password, setPassword] = useState("");
 
   const imagehandler=()=>{
-    navigation.navigate("Camera")
+    navigation.navigate("Cameraa")
 
   }
 

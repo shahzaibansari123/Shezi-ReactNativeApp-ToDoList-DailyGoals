@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Camera, CameraType } from "expo-camera";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const Camera = () => {
+const Cameraa = () => {
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
 
@@ -10,7 +10,7 @@ const Camera = () => {
     return <Text>No Access to Camera</Text>
   }
   
-  if (!permission.granted){
+  if (permission.granted){
     return <View />
   }
 
@@ -33,6 +33,6 @@ const Camera = () => {
   );
 };
 
-export default Camera;
+export default Cameraa;
 
 const styles = StyleSheet.create({});
