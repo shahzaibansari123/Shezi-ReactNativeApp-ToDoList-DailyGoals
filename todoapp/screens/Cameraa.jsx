@@ -11,6 +11,7 @@ const Cameraa = () => {
   }
   
   if (permission.granted){
+    requestPermission(true)
     return <View />
   }
 
@@ -21,8 +22,8 @@ const Cameraa = () => {
   }
 
   return (
-    <View >
-      <Camera type={type}>
+    <View style={{flex: 1}} >
+      <Camera type={type} style={{flex:1}}>
         <View >
           <TouchableOpacity onPress={toggleCameraType}>
             <Text >Flip Camera</Text>
