@@ -48,11 +48,15 @@ const Cameraa = () => {
   return (
     <View style={{ flex: 1 }}>
       <Camera type={type} style={{ flex: 1 }}>
-        <View>
-          <TouchableOpacity onPress={toggleCameraType}>
-            <Text>Flip Camera</Text>
-          </TouchableOpacity>
-        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            width: "100%",
+            bottom: "10",
+            position: "absolute",
+          }}
+        ></View>
       </Camera>
     </View>
   );
