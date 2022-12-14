@@ -56,7 +56,10 @@ const Cameraa = () => {
             bottom: "10",
             position: "absolute",
           }}
-        ></View>
+        >
+          <Icon name="image" size={40} color="#fff"/>
+          <Icon name="camera" size={40} color="#fff"/>
+        </View>
       </Camera>
     </View>
   );
