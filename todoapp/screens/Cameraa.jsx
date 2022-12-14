@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Camera, CameraType } from "expo-camera";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
+
 const Cameraa = () => {
   // const [permission, requestPermission] = useState(null);
   // const [type, setType] = useState(CameraType.back);
@@ -59,6 +60,7 @@ const Cameraa = () => {
         >
           <Icon name="image" size={40} color="#fff"/>
           <Icon name="camera" size={40} color="#fff"/>
+          <Icon name="flip-camera-android" size={40} color="#fff"/>
         </View>
       </Camera>
     </View>
