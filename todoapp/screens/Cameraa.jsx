@@ -31,6 +31,9 @@ const Cameraa = () => {
 
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
+  const [camera, setCamera] = useState(null);
+
+
 
   if (!permission) {
     return <Text>No Access to Camera</Text>;
@@ -47,9 +50,17 @@ const Cameraa = () => {
   //   );
   // };
 
+  const ImagePicker=()=>{
+
+  }
+
+  const clickPicture=()=>{
+    
+  }
+
   return (
     <View style={{ flex: 1 }}>
-      <Camera type={type} style={{ flex: 1 }}>
+      <Camera type={type} style={{ flex: 1 , aspectRatio: 1}} ratio="1:1" ref={(e)=> setCamera(e)} />
         <View
           style={{
             flexDirection: "row",
@@ -61,9 +72,9 @@ const Cameraa = () => {
         >
           <Icon name="image" size={40} color="#fff" onPress={ImagePicker}/>
           <Icon name="camera" size={40} color="#fff" onPress={clickPicture}/>
-          <Icon name="flip-camera-android" size={40} color="#fff" onPress={()=> setType(type === CameraType.back ? CameraType.front : CamerType.back)}/>
+          <Icon name="flip-camera-android" size={40} color="#fff" onPress={()=> setType(type === CameraType.back ? CameraType.front : CameraType.back)}/>
           </View>
-      </Camera>
+      
     </View>
   );
 };
