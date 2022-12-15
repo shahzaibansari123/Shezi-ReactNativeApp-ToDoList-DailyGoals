@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Camera, CameraType } from "expo-camera";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Icon from 'react-native-vector-icons/MaterialIcons'
+// import Icon from 'react-native-vector-icons/MaterialIcons'
 
 
 const Cameraa = () => {
@@ -55,14 +55,14 @@ const Cameraa = () => {
             flexDirection: "row",
             justifyContent: "space-evenly",
             width: "100%",
-            bottom: "10",
+            bottom: 10,
             position: "absolute",
           }}
         >
-          <Icon name="image" size={40} color="#fff"/>
+          {/* <Icon name="image" size={40} color="#fff"/>
           <Icon name="camera" size={40} color="#fff"/>
-          <Icon name="flip-camera-android" size={40} color="#fff" onPress={()=> setType(type === CameraType.front ? CameraType.back : CamerType.front)}/>
-        </View>
+          <Icon name="flip-camera-android" size={40} color="#fff" onPress={()=> setType(type === CameraType.back ? CameraType.front : CamerType.back)}/> */}
+          </View>
       </Camera>
     </View>
   );
