@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Camera, CameraType } from "expo-camera";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 
 const Cameraa = () => {
