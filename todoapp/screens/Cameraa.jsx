@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Camera, CameraType } from "expo-camera";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-// import Icon from 'react-native-vector-icons/MaterialIcons'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 
 const Cameraa = () => {
@@ -41,11 +41,11 @@ const Cameraa = () => {
     return <View />;
   }
 
-  const toggleCameraType = () => {
-    setType((current) =>
-      current === CameraType.back ? CameraType.front : CameraType.back
-    );
-  };
+  // const toggleCameraType = () => {
+  //   setType((current) =>
+  //     current === CameraType.back ? CameraType.front : CameraType.back
+  //   );
+  // };
 
   return (
     <View style={{ flex: 1 }}>
@@ -59,9 +59,9 @@ const Cameraa = () => {
             position: "absolute",
           }}
         >
-          {/* <Icon name="image" size={40} color="#fff"/>
-          <Icon name="camera" size={40} color="#fff"/>
-          <Icon name="flip-camera-android" size={40} color="#fff" onPress={()=> setType(type === CameraType.back ? CameraType.front : CamerType.back)}/> */}
+          <Icon name="image" size={40} color="#fff" onPress={ImagePicker}/>
+          <Icon name="camera" size={40} color="#fff" onPress={clickPicture}/>
+          <Icon name="flip-camera-android" size={40} color="#fff" onPress={()=> setType(type === CameraType.back ? CameraType.front : CamerType.back)}/>
           </View>
       </Camera>
     </View>
