@@ -61,7 +61,7 @@ const Cameraa = () => {
         >
           <Icon name="image" size={40} color="#fff"/>
           <Icon name="camera" size={40} color="#fff"/>
-          <Icon name="flip-camera-android" size={40} color="#fff"/>
+          <Icon name="flip-camera-android" size={40} color="#fff" onPress={()=> setType(type === CameraType.front ? CameraType.back : CamerType.front)}/>
         </View>
       </Camera>
     </View>
