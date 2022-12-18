@@ -20,6 +20,7 @@ const Cameraa = () => {
 
   const clickPicture = async () => {
   const data = await camera.takeAsyncPicture()
+  console.log(data)
   };
 
   return (
