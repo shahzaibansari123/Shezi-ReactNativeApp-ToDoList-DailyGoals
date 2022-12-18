@@ -18,7 +18,9 @@ const Cameraa = () => {
 
   const ImagePicker = () => {};
 
-  const clickPicture = () => {};
+  const clickPicture = async () => {
+  const data = await camera.takeAsyncPicture()
+  };
 
   return (
     <View style={{ flex: 1 }}>
