@@ -3,7 +3,7 @@ import { Camera, CameraType } from "expo-camera";
 import { StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
-const Cameraa = () => {
+const Cameraa = ({navigation}) => {
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
   const [camera, setCamera] = useState(null);
@@ -21,6 +21,8 @@ const Cameraa = () => {
   const clickPicture = async () => {
   const data = await camera.takeAsyncPicture()
   console.log(data)
+    
+    navigation.navigate("register")
   };
 
   return (
