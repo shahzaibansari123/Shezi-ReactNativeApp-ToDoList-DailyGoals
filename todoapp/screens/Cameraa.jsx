@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { Camera, CameraType } from "expo-camera";
 import { StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import * as ImagePicker from 'expo-image-picker';
+import * as ImagePicker from "expo-image-picker";
 
-const Cameraa = ({navigation}) => {
+const Cameraa = ({ navigation }) => {
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
+
   const [camera, setCamera] = useState(null);
+
   const [image, setImage] = useState(null);
 
   if (!permission) {
@@ -18,13 +20,27 @@ const Cameraa = ({navigation}) => {
     return <View />;
   }
 
-  const ImagePicker = () => {};
-
   const clickPicture = async () => {
-  const data = await camera.takePictureAsync()
-  // console.log(data.uri)
-    
-    navigation.navigate("Register", {image : data.uri})
+    const data = await camera.takePictureAsync();
+    // console.log(data.uri)
+
+    navigation.navigate("Register", { image: data.uri });
+  };
+
+  const ImagePicker = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
   };
 
   return (
