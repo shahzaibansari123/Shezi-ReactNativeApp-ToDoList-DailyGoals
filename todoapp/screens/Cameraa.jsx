@@ -19,10 +19,10 @@ const Cameraa = ({navigation}) => {
   const ImagePicker = () => {};
 
   const clickPicture = async () => {
-  const data = await camera.takeAsyncPicture()
+  const data = await camera.takePictureAsync()
   console.log(data.uri)
     
-    navigation.navigate("register", {image : data.uri})
+    // navigation.navigate("Register", {image : data.uri})
   };
 
   return (
