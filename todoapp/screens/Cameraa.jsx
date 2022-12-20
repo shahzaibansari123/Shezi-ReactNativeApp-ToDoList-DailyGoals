@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Camera, CameraType } from "expo-camera";
 import { StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import * as ImagePicker from 'expo-image-picker';
 
 const Cameraa = ({navigation}) => {
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
   const [camera, setCamera] = useState(null);
+  const [image, setImage] = useState(null);
 
   if (!permission) {
     return <Text>No Access to Camera</Text>;
