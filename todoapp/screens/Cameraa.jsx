@@ -41,6 +41,8 @@ const Cameraa = ({ navigation }) => {
     if (!result.canceled) {
       setImage(result.assets[0].uri);
     }
+    
+    return navigation.navigate("Register", {image: data.uri})
   };
 
   return (
