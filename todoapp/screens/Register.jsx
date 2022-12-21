@@ -8,7 +8,7 @@ import {
 import React, { useState } from "react";
 import { Avatar, Button } from "react-native-paper";
 
-const Register = ({ navigation }) => {
+const Register = ({ navigation, route }) => {
   const [avatar, setAvatar] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,6 +20,8 @@ const Register = ({ navigation }) => {
 
   const registerHandler = () => {
     console.log("register here");
+    
+    console.log(route)
   };
 
   return (
