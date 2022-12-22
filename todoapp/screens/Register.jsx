@@ -25,7 +25,11 @@ const Register = ({ navigation, route }) => {
   };
   
   useEffect(()=>{
-    
+    if(route.params){
+      if(route.params.image){
+        setAvatar(route.params.image)
+        }
+      }
     },[])
 
   return (
