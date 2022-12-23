@@ -21,7 +21,7 @@ const Register = ({ navigation, route }) => {
   const registerHandler = () => {
     console.log("register here");
     
-    console.log(route.params.image)
+   // console.log(route.params.image)
   };
   
   useEffect(()=>{
