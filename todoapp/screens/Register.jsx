@@ -30,7 +30,7 @@ const Register = ({ navigation, route }) => {
         setAvatar(route.params.image)
         }
       }
-    },[])
+    },[route])
 
   return (
     <View
