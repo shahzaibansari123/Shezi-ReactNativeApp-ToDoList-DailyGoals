@@ -4,11 +4,12 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Image,
+  ImageBackground,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Avatar, Button } from "react-native-paper";
-import dummyCam from '../assets/dummyCam.jpeg'
+import dummyCam from "../assets/dummyCam.jpeg";
+import background from "../assets/background.jpg";
 
 const Register = ({ navigation, route }) => {
   const [avatar, setAvatar] = useState("");
@@ -22,33 +23,37 @@ const Register = ({ navigation, route }) => {
 
   const registerHandler = () => {
     console.log("register here");
-    
-   console.log(route.params.image)
+
+    console.log(route.params.image);
   };
-  
-  useEffect(()=>{
-    if(route.params){
-      if(route.params.image){
-        setAvatar(route.params.image)
-        }
+
+  useEffect(() => {
+    if (route.params) {
+      if (route.params.image) {
+        setAvatar(route.params.image);
       }
-    },[route])
+    }
+  }, [route]);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "#000",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
+    // <View
+    //   style={{
+    //     flex: 1,
+    //     backgroundColor: "#000",
+    //     // alignItems: "center",
+    //     // justifyContent: "center",
+    //   }}
+    // >
+    <ImageBackground
+      source={background}
+      resizeMode="stretch"
+      style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
     >
-      {/* <Image source={dummyCam} height={20} width={20}/> */}
       <Avatar.Image
         size={200}
-        style={{ backgroundColor: "#0098A6" , margin: 10}}
+        style={{ backgroundColor: "#0098A6", margin: 10 }}
         // source={{ uri: avatar ? avatar : null}}
-        source={avatar ? {uri: avatar} :dummyCam}
+        source={avatar ? { uri: avatar } : dummyCam}
       />
       <TouchableOpacity onPress={imagehandler}>
         <Text style={Styles.btnTxt}>Upload an image</Text>
@@ -102,7 +107,8 @@ const Register = ({ navigation, route }) => {
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ImageBackground>
+    // </View>
   );
 };
 
