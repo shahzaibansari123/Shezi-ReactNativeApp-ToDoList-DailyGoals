@@ -4,9 +4,11 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Image,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Avatar, Button } from "react-native-paper";
+import dummyCam from '../assets/dummyCam.jpeg'
 
 const Register = ({ navigation, route }) => {
   const [avatar, setAvatar] = useState("");
@@ -21,7 +23,7 @@ const Register = ({ navigation, route }) => {
   const registerHandler = () => {
     console.log("register here");
     
-   // console.log(route.params.image)
+   console.log(route.params.image)
   };
   
   useEffect(()=>{
@@ -41,13 +43,15 @@ const Register = ({ navigation, route }) => {
         justifyContent: "center",
       }}
     >
+      {/* <Image source={dummyCam} height={20} width={20}/> */}
       <Avatar.Image
         size={200}
         style={{ backgroundColor: "#0098A6" , margin: 10}}
-        source={{ uri: avatar ? avatar : null }}
+        // source={{ uri: avatar ? avatar : null}}
+        source={avatar ? {uri: avatar} :dummyCam}
       />
       <TouchableOpacity onPress={imagehandler}>
-        <Text style={Styles.btnTxt}>Change your Image</Text>
+        <Text style={Styles.btnTxt}>Upload an image</Text>
       </TouchableOpacity>
       <View style={{ width: "70%" }}>
         <TextInput

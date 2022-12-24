@@ -10,8 +10,6 @@ const Cameraa = ({ navigation }) => {
 
   const [camera, setCamera] = useState(null);
 
-  // const [image, setImage] = useState([null]);
-
   if (!permission) {
     return <Text>No Access to Camera</Text>;
   }
@@ -32,16 +30,12 @@ const Cameraa = ({ navigation }) => {
     let data = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [4, 3],
+      aspect: [2, 2],
       quality: 1,
     });
 
     console.log(data);
 
-    // if (!data.cancelled) {
-    //   setImage(data.uri);
-    // }
-    
     return navigation.navigate("Register", {image: data.uri})
   };
 
