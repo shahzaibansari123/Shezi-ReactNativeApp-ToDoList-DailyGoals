@@ -50,7 +50,8 @@ const Register = ({ navigation, route }) => {
       style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
     >
       <Avatar.Image
-        size={200}
+      onPress={imagehandler}
+        size={140}
         style={{ backgroundColor: "#0098A6", margin: 10 }}
         // source={{ uri: avatar ? avatar : null}}
         source={avatar ? { uri: avatar } : dummyCam}
