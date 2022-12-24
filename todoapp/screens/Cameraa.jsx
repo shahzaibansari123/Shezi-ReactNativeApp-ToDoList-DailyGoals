@@ -10,7 +10,7 @@ const Cameraa = ({ navigation }) => {
 
   const [camera, setCamera] = useState(null);
 
-  const [image, setImage] = useState([null]);
+  // const [image, setImage] = useState([null]);
 
   if (!permission) {
     return <Text>No Access to Camera</Text>;
@@ -24,7 +24,7 @@ const Cameraa = ({ navigation }) => {
     const data = await camera.takePictureAsync();
     // console.log(data.uri)
 
-    navigation.navigate("Register", { image: data.uri });
+    return navigation.navigate("Register", { image: data.uri });
   };
 
   const UploadImage = async () => {
@@ -38,9 +38,9 @@ const Cameraa = ({ navigation }) => {
 
     console.log(data);
 
-    if (!data.cancelled) {
-      setImage(data.uri);
-    }
+    // if (!data.cancelled) {
+    //   setImage(data.uri);
+    // }
     
     return navigation.navigate("Register", {image: data.uri})
   };
