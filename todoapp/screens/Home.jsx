@@ -8,11 +8,14 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
+  ImageBackground,
 } from "react-native";
 import React, { useState } from "react";
 import Task from "../components/Task";
 import Icon from "react-native-vector-icons/Ionicons";
 import { Button, Dialog } from "react-native-paper";
+import background from "../assets/background.jpeg";
+
 // import { useNavigation } from '@react-navigation/native'
 
 const Home = ({ navigation }) => {
@@ -48,7 +51,12 @@ const Home = ({ navigation }) => {
   return (
     <>
       {Platform.OS === "android" && <StatusBar backgroundColor="#0098A6" />}
-      <View style={styles.container}>
+      {/* <View style={styles.container}> */}
+      <ImageBackground
+        source={background}
+        resizeMode="stretch"
+        style={styles.container}
+      >
         <ScrollView>
           <SafeAreaView>
             <Text style={styles.heading}>All Tasks:</Text>
@@ -67,7 +75,8 @@ const Home = ({ navigation }) => {
         <TouchableOpacity style={styles.addBtn} onPress={handleDialog}>
           <Icon size={30} name="add" color="#fff" />
         </TouchableOpacity>
-      </View>
+        </ImageBackground>
+      {/* </View> */}
       <Dialog
         visible={openDialog}
         onDismiss={handleDialog}
@@ -110,8 +119,7 @@ const Home = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "black",
-
+    // backgroundColor: "black",
     flex: 1,
     paddingTop: Platform.OS === "IOS" ? 0 : null,
   },

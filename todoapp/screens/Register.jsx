@@ -9,7 +9,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { Avatar, Button } from "react-native-paper";
 import dummyCam from "../assets/dummyCam.jpeg";
-import background from "../assets/background.jpg";
+import background from "../assets/background.jpeg";
 
 const Register = ({ navigation, route }) => {
   const [avatar, setAvatar] = useState("");
