@@ -10,7 +10,7 @@ const Cameraa = ({ navigation }) => {
 
   const [camera, setCamera] = useState(null);
 
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState([null]);
 
   if (!permission) {
     return <Text>No Access to Camera</Text>;
@@ -27,19 +27,19 @@ const Cameraa = ({ navigation }) => {
     navigation.navigate("Register", { image: data.uri });
   };
 
-  const ImagePicker = async () => {
+  const UploadImage = async () => {
     // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
+    let data = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
     });
 
-    console.log(result);
+    console.log(data);
 
-    if (!result.canceled) {
-      setImage(result.assets[0].uri);
+    if (!data.cancelled) {
+      setImage(data.uri);
     }
     
     return navigation.navigate("Register", {image: data.uri})
@@ -62,7 +62,7 @@ const Cameraa = ({ navigation }) => {
           position: "absolute",
         }}
       >
-        <Icon name="image" size={40} color="#fff" onPress={ImagePicker} />
+        <Icon name="image" size={40} color="#fff" onPress={UploadImage} />
         <Icon name="camera" size={40} color="#fff" onPress={clickPicture} />
         <Icon
           name="flip-camera-android"

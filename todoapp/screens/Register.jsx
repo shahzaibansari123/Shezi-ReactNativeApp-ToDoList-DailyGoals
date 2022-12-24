@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Avatar, Button } from "react-native-paper";
 
 const Register = ({ navigation, route }) => {
