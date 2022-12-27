@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-export const auth = createReducer(
+export const authReducer = createReducer(
   {},
   {
     loginRequest: (state) => {
