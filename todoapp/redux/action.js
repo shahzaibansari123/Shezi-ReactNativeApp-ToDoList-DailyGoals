@@ -6,7 +6,7 @@ try{
   
   dispatch({type: "loginRequest"})
   
-  const {data}=await axios.post(`${serverUrl}/login`)
+  const {data}=await axios.post(`${serverUrl}/login`,{email, password})
   } catch(error){
     }
 }
