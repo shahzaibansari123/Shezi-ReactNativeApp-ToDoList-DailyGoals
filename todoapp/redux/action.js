@@ -11,6 +11,8 @@ try{
                                                       "Content-Type" : "application/json",
                                                       },
                                                      })
+  
+  dispatch({type: "loginSuccess"})
   } catch(error){
     }
 }
