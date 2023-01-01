@@ -12,7 +12,7 @@ try{
                                                       },
                                                      })
   
-  dispatch({type: "loginSuccess"})
+  dispatch({type: "loginSuccess", payload: data})
   } catch(error){
     }
 }
