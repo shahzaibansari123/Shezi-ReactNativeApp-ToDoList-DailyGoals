@@ -18,6 +18,13 @@ export const authReducer = createReducer(
       state.error = action.payload;
     },
 
+
+    loadUserRequest: (state) => {},
+    loadUserSuccess: (state, action) => {},
+    loadUserFailure: (state, action) => {},
+
+
+    
     clearMessage: (state) => {
       state.message = null;
     },
