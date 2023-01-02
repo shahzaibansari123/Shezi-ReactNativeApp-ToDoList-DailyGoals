@@ -20,3 +20,8 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({ type: "loginFailed", payload: error.response.data.message });
   }
 };
+
+export const getMyProfile = () => async () => {
+  try {
+  } catch (error) {}
+};
