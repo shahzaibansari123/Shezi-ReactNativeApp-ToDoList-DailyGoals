@@ -23,5 +23,12 @@ export const login = (email, password) => async (dispatch) => {
 
 export const getMyProfile = () => async (dispatch) => {
   try {
-  } catch (error) {}
+    dispatch({ type: "loadUserRequest" });
+
+   
+
+    dispatch({ type: "loadUserSuccess", payload: data });
+  } catch (error) {
+    dispatch({ type: "loadUserFailed", payload: error.response.data.message });
+  }
 };
