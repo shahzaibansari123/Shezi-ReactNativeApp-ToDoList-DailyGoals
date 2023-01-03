@@ -19,12 +19,21 @@ export const authReducer = createReducer(
     },
 
 
-    loadUserRequest: (state) => {},
-    loadUserSuccess: (state, action) => {},
-    loadUserFailure: (state, action) => {},
-
-
+    loadUserRequest: (state) => {
+      state.loading = true;
+    },
+    loadUserSuccess: (state, action) => {
+      state.loading = false;
+      state.isAuthenticated = true;
+      state.user = action.payload.user;
+    },
+    loadUserFailure: (state, action) => {
+      state.loading = false;
+      state.isAuthenticated = false;
+      state.error = action.payload;
+    },
     
+
     clearMessage: (state) => {
       state.message = null;
     },
