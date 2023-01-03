@@ -21,7 +21,7 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
-export const getMyProfile = () => async () => {
+export const getMyProfile = () => async (dispatch) => {
   try {
   } catch (error) {}
 };
