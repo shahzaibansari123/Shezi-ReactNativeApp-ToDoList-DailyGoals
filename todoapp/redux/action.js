@@ -25,7 +25,7 @@ export const getMyProfile = () => async (dispatch) => {
   try {
     dispatch({ type: "loadUserRequest" });
 
-   
+    const { data } = await axios.get(`${serverUrl}/me`);
 
     dispatch({ type: "loadUserSuccess", payload: data });
   } catch (error) {
