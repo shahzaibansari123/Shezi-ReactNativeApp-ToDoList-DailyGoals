@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { Button } from "react-native-paper";
 import background from "../assets/background.jpeg";
 import { useDispatch } from "react-redux";
+import { login } from "../redux/action";
 
 // import { useNavigation } from "@react-navigation/native";
 
@@ -22,7 +23,7 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState("");
 
   const loginHandler = () => {
-    dispatch(Login(email, password))
+    dispatch(login(email, password))
     console.log("login");
   };
 
