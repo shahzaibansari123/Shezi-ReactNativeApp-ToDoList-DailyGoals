@@ -20,7 +20,9 @@ const Login = ({ navigation }) => {
   const dispatch = useDispatch()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const loginHandler = () => {
+    dispatch(Login(email, password))
     console.log("login");
   };
 
