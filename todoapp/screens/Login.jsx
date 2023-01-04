@@ -9,11 +9,15 @@ import {
 import React, { useState } from "react";
 import { Button } from "react-native-paper";
 import background from "../assets/background.jpeg";
+import { useDispatch } from "react-redux";
 
 // import { useNavigation } from "@react-navigation/native";
 
 const Login = ({ navigation }) => {
+
   // const navigation = useNavigation();
+  
+  const dispatch = useDispatch()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const loginHandler = () => {
