@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const serverUrl = "";
+const serverUrl = " http://localhost:5000/api/v1";
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: "loginRequest" });
