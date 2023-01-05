@@ -17,7 +17,7 @@ import Cameraa from "./screens/Cameraa";
 
 const Main = () => {
   const Stack = createNativeStackNavigator();
-  const { } =useSelector()
+  const { isAuthenticated, loading} =useSelector(state=>state.auth)
 
   return (
     <NavigationContainer>
