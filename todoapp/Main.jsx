@@ -2,6 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {useSelector} from "react-redux"
 
 import Home from "./screens/Home";
 import Login from "./screens/Login";
@@ -16,6 +17,7 @@ import Cameraa from "./screens/Cameraa";
 
 const Main = () => {
   const Stack = createNativeStackNavigator();
+  const { } =useSelector()
 
   return (
     <NavigationContainer>
