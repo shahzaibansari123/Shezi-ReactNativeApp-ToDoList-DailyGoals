@@ -1,5 +1,5 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, {useEffect} from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {useSelector} from "react-redux"
@@ -18,7 +18,10 @@ import Cameraa from "./screens/Cameraa";
 const Main = () => {
   const Stack = createNativeStackNavigator();
   const { isAuthenticated, loading} =useSelector(state=>state.auth)
-
+useEffect(()=>{
+  
+  
+  },[])
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={isAuthenticated ? "Home" : "Login"}>
