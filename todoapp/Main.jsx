@@ -10,6 +10,7 @@ import Profile from "./screens/Profile";
 import Footer from "./components/Footer";
 import Register from "./screens/Register";
 import Cameraa from "./screens/Cameraa";
+import {loadUser} from './redux/action'
 
 
 const Stack = createNativeStackNavigator();
@@ -19,6 +20,7 @@ const Main = () => {
   const { isAuthenticated, loading } = useSelector((state) => state.auth);
 
   useEffect(() => {
+    dispatch(loadUser())
 
   }, []);
 
