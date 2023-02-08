@@ -22,7 +22,7 @@ const Main = () => {
   useEffect(() => {
     dispatch(loadUser())
 
-  }, []);
+  }, [dispatch]);
 
   return (
     <NavigationContainer>
